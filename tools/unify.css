@@ -60,3 +60,16 @@
 .case>div:not(.ctext)::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;pointer-events:none;z-index:-1;
   background:linear-gradient(150deg,color-mix(in srgb,var(--pg) 45%,#fff),transparent 45%,transparent 70%,color-mix(in srgb,var(--pg2) 50%,transparent));
   mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0)}
+/* הגרדיאנט על כל הכרטיס (טקסט ומכשירים), בגרסה בהירה */
+.case,.case.alva{position:relative;isolation:isolate;overflow:hidden;border-radius:28px;padding:clamp(24px,4.5vw,64px);
+  background:radial-gradient(70% 90% at var(--gx) 0%,color-mix(in srgb,var(--pg) 30%,transparent),transparent 62%),
+    radial-gradient(55% 70% at calc(100% - var(--gx)) 100%,color-mix(in srgb,var(--pg2) 38%,transparent),transparent 70%),
+    linear-gradient(160deg,color-mix(in srgb,var(--pg) 10%,var(--stage)),var(--stage) 70%)!important;
+  box-shadow:0 40px 80px -60px color-mix(in srgb,var(--pg) 75%,transparent)}
+.case::before{display:block;content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;pointer-events:none;z-index:-1;
+  background:linear-gradient(150deg,color-mix(in srgb,var(--pg) 45%,#fff),transparent 45%,transparent 70%,color-mix(in srgb,var(--pg2) 55%,transparent));
+  mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0)}
+.case>div:not(.ctext){background:none;box-shadow:none;padding:0;border-radius:0}
+.case>div:not(.ctext)::before{display:none}
+.case+.case{margin-top:clamp(20px,3vw,32px)}
+.case .pill{background:color-mix(in srgb,#fff 55%,transparent)}

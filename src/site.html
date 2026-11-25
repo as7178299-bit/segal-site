@@ -574,17 +574,17 @@ h1 .dot{color:var(--accent)}
 .ap.on .kcol:nth-child(2) .kc{animation-delay:.12s}.ap.on .kcol:nth-child(3) .kc{animation-delay:.24s}
 /* תשלומים */
 .pay{display:grid;grid-template-columns:auto 1fr;gap:9px}
-.ring{flex-direction:column;justify-content:center;gap:4px;padding:10px 14px;white-space:normal;text-align:center;position:relative}
-.ring svg{width:74px;height:74px;transform:rotate(-90deg)}
-.ring circle{fill:none;stroke-width:7}
-.ring .tr{stroke:#ECEAFB}
-.ring .pr{stroke:#6C5CE0;stroke-linecap:round;stroke-dasharray:163.4;stroke-dashoffset:40.8}
-.ap.on .ring .pr{animation:ring 1.1s cubic-bezier(.2,.8,.2,1) .2s both}
+.vring{flex-direction:column;justify-content:center;gap:4px;padding:10px 14px;white-space:normal;text-align:center;position:relative}
+.vring svg{width:74px;height:74px;transform:rotate(-90deg)}
+.vring circle{fill:none;stroke-width:7}
+.vring .tr{stroke:#ECEAFB}
+.vring .pr{stroke:#6C5CE0;stroke-linecap:round;stroke-dasharray:163.4;stroke-dashoffset:40.8}
+.ap.on .vring .pr{animation:ring 1.1s cubic-bezier(.2,.8,.2,1) .2s both}
 @keyframes ring{from{stroke-dashoffset:163.4}}
-.ring span{position:absolute;top:10px;left:0;right:0;height:74px;display:grid;place-content:center;line-height:1.1}
-.ring .rc{position:static}
-.ring span b{font-size:17px;font-weight:700}
-.ring span small{font-size:9.5px}
+.vring span{position:absolute;top:10px;left:0;right:0;height:74px;display:grid;place-content:center;line-height:1.1}
+.vring .rc{position:static}
+.vring span b{font-size:17px;font-weight:700}
+.vring span small{font-size:9.5px}
 .pay .inv{padding:10px 12px}
 .pay .inv .tot{font-size:15px}
 /* תהליך אוטומטי */
@@ -622,7 +622,7 @@ h1 .dot{color:var(--accent)}
 .srcs{display:flex;flex-wrap:wrap;gap:6px}
 .srcs span{display:inline-flex;align-items:center;gap:5px;font-size:11.5px;font-weight:500;color:#fff;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.28);border-radius:99px;padding:3px 10px 3px 8px;backdrop-filter:blur(4px)}
 .srcs svg{width:13px;height:13px;fill:none;stroke:#fff;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-.ring .rc{font-size:11px;color:#46566B}
+.vring .rc{font-size:11px;color:#46566B}
 .ms{gap:0;padding:12px 14px;flex-wrap:wrap}
 .ms .d{flex:none;width:14px;height:14px;border-radius:50%;border:2px solid #CFCBF3;background:#fff;position:relative}
 .ms .d.ok{background:#6C5CE0;border-color:#6C5CE0}
@@ -632,8 +632,8 @@ h1 .dot{color:var(--accent)}
 .ms small{flex-basis:100%;margin-top:7px;font-size:11px;text-align:center;word-spacing:2px}
 .ap.on .ms .d.ok{animation:tick .35s cubic-bezier(.3,1.6,.5,1) both}
 .ap.on .ms .d.ok:nth-of-type(2){animation-delay:.25s}.ap.on .ms .d.ok:nth-of-type(3){animation-delay:.5s}
-.log{display:flex;align-items:center;gap:7px;font-size:11.5px;font-weight:500;color:#fff;background:rgba(0,0,0,.16);border-radius:99px;padding:5px 12px;justify-self:start}
-.log i{width:7px;height:7px;border-radius:50%;background:#7CF0C3;box-shadow:0 0 0 3px rgba(124,240,195,.25)}
+.slog{display:flex;align-items:center;gap:7px;font-size:11.5px;font-weight:500;color:#fff;background:rgba(0,0,0,.16);border-radius:99px;padding:5px 12px;justify-self:start}
+.slog i{width:7px;height:7px;border-radius:50%;background:#7CF0C3;box-shadow:0 0 0 3px rgba(124,240,195,.25)}
 @media(max-width:420px){.srcs span:nth-child(4){display:none}.ms small{font-size:10px}}
 @media(max-width:900px){
   .acc{height:auto}
@@ -644,10 +644,10 @@ h1 .dot{color:var(--accent)}
 @media(max-width:420px){
   .kb{gap:5px;padding:8px}.kc s{display:none}.kc{justify-content:center}
   .pay{grid-template-columns:1fr}.pay .inv{display:none}
-  .ring{flex-direction:row;justify-content:flex-start;gap:14px;text-align:start}
-  .ring svg{width:58px;height:58px}.ring span{top:10px;right:auto;left:auto;width:58px;height:58px;inset-inline-start:14px}.ring span b{font-size:14px}
+  .vring{flex-direction:row;justify-content:flex-start;gap:14px;text-align:start}
+  .vring svg{width:58px;height:58px}.vring span{top:10px;right:auto;left:auto;width:58px;height:58px;inset-inline-start:14px}.vring span b{font-size:14px}
 }
-@media(prefers-reduced-motion:reduce){.ap.on .kc,.ap.on .ring .pr,.ap.on .flow i::after,.ap.on .tick,.ap.on .chart .ln,.ap.on .chart .area,.ap.on .ping::after{animation:none}.tick{opacity:1;transform:none}.chart .area{opacity:1}.pts{transition:none}}
+@media(prefers-reduced-motion:reduce){.ap.on .kc,.ap.on .vring .pr,.ap.on .flow i::after,.ap.on .tick,.ap.on .chart .ln,.ap.on .chart .area,.ap.on .ping::after{animation:none}.tick{opacity:1;transform:none}.chart .area{opacity:1}.pts{transition:none}}
 
 /* ---------- איך עובדים: נקודות צבעוניות ---------- */
 .proc li:nth-child(1){--sc:#16A394}.proc li:nth-child(2){--sc:#7C6BE0}.proc li:nth-child(3){--sc:#F0A23A}.proc li:nth-child(4){--sc:#3B8BF6}
@@ -861,7 +861,7 @@ h1 .dot{color:var(--accent)}
         <div class="ap-art" aria-hidden="true"><div class="vg">
           <div class="vc toast"><span class="ic ok"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span><b>התשלום התקבל</b><br><small>הזמנה מס' 1047 · קבלה נשלחה</small></span><span class="amt">1,200 ₪</span></div>
           <div class="pay">
-            <div class="vc ring"><svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="26" class="tr"/><circle cx="32" cy="32" r="26" class="pr"/></svg><span><b>75%</b></span><small class="rc">מהעסקה שולם</small></div>
+            <div class="vc vring"><svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="26" class="tr"/><circle cx="32" cy="32" r="26" class="pr"/></svg><span><b>75%</b></span><small class="rc">מהעסקה שולם</small></div>
             <div class="vc inv"><div class="row"><span>עבודה וחומרים</span><span>4,068 ₪</span></div><div class="row"><span>מע"מ</span><span>732 ₪</span></div><div class="tot"><span>סה"כ</span><span>4,800 ₪</span></div></div>
           </div>
           <div class="vc ms"><span class="d ok"></span><i></i><span class="d ok"></span><i></i><span class="d ok"></span><i class="g"></i><span class="d"></span><small>מקדמה · שלב 2 · שלב 3 · מסירה</small></div>
@@ -877,7 +877,7 @@ h1 .dot{color:var(--accent)}
             <div class="vc nd"><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 5h16v10.5H9.5L5 19.5V15.5H4z"/></svg></span><b>עדכון לצוות</b><span class="tick"></span></div>
             <div class="vc nd"><span class="ic"><svg viewBox="0 0 24 24"><path d="M2.5 6.5h11v9.5h-11zM13.5 10h4l3 3.2v2.8h-7z"/><circle cx="6.5" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/></svg></span><b>הזמנה לספק</b><span class="tick"></span></div>
           </div>
-          <div class="log"><i></i>יומן שליחות: 3 מתוך 3 יצאו · 08:02</div>
+          <div class="slog"><i></i>יומן שליחות: 3 מתוך 3 יצאו · 08:02</div>
         </div></div>
         <div class="ap-txt"><span class="ap-tag"><span class="ti"><svg viewBox="0 0 24 24"><path d="M13 2.5L5 13.5h6l-1 8 8-11h-6z"/></svg></span>03 · אוטומציה</span><h3>תזכורות והודעות</h3><p>מיילים והודעות שיוצאים בזמן הנכון, ללקוחות, לצוות ולספקים.</p><ul class="pts"><li>בזמן הנכון</li><li>בלי לשכוח</li><li>יומן שליחות</li></ul></div>
       </li>

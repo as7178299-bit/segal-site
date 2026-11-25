@@ -297,15 +297,23 @@ h1 .dot{color:var(--accent)}
 .whead h2{margin:0;font-size:clamp(28px,3.4vw,40px);line-height:1.15;font-weight:700;text-wrap:balance}
 .whead p{text-wrap:pretty;margin:14px 0 0;font-size:clamp(16px,1.4vw,18px);color:var(--muted)}
 
-.case{--pc:#1E2352;--pc2:#2B3270;--pa:#F2B544;--pink:#FFFFFF;--pmut:#C9CDE8;
+.case{--pc:#1A1F4D;--pc2:#2B3270;--pg:#5B4FD6;--pa:#F2B544;--pink:#FFFFFF;--pmut:#C9CDE8;
   position:relative;display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(24px,4vw,64px);align-items:center;
   padding:clamp(24px,4.5vw,64px);border-radius:28px;color:var(--pink);overflow:hidden;isolation:isolate;
-  background:radial-gradient(120% 90% at 15% 0%,var(--pc2) 0%,transparent 60%),var(--pc)}
+  --gx:0%;background:
+    radial-gradient(90% 110% at var(--gx) 0%,var(--pg) 0%,transparent 64%),
+    radial-gradient(55% 70% at calc(100% - var(--gx)) 100%,color-mix(in srgb,var(--pa) 26%,transparent),transparent 70%),
+    linear-gradient(160deg,var(--pc2),var(--pc) 65%)}
 .case+.case{margin-top:clamp(20px,3vw,32px)}
-.case.alva{--pc:#1F3A24;--pc2:#2E5233;--pa:#F0B24A;--pmut:#CBDCC6}
+.case.alva{--pc:#17301C;--pc2:#2E5233;--pg:#4E8E3E;--gx:100%;--pa:#F0B24A;--pmut:#CBDCC6}
 .case.flip .ctext{order:2}
-.case::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.5;
-  background:radial-gradient(60% 60% at 85% 100%,color-mix(in srgb,var(--pa) 18%,transparent),transparent 70%)}
+.case::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.16;
+  background-image:radial-gradient(rgba(255,255,255,.9) 1px,transparent 1.2px);background-size:20px 20px;
+  mask:radial-gradient(60% 80% at var(--gx) 0%,#000,transparent 75%)}
+.case::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;pointer-events:none;
+  background:linear-gradient(150deg,color-mix(in srgb,var(--pg) 70%,#fff 10%),transparent 40%,transparent 70%,color-mix(in srgb,var(--pa) 45%,transparent));
+  mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0)}
+.case{box-shadow:0 40px 80px -50px color-mix(in srgb,var(--pg) 70%,transparent)}
 .ctag{display:flex;flex-wrap:wrap;align-items:center;gap:10px;font-size:14px;color:var(--pmut)}
 .ctag b{color:var(--pink);font-weight:500;font-size:15px}
 .pill{display:inline-flex;align-items:center;min-height:26px;padding:0 10px;border-radius:999px;font-size:13px;font-weight:500;color:var(--pink);border:1px solid rgba(255,255,255,.28)}

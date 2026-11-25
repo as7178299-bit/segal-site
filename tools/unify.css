@@ -28,3 +28,7 @@
 .faqw .sech{position:static;margin:0 0 clamp(28px,4vw,48px)}
 .faqw .faq{max-width:880px}
 .faq .box{background:var(--card)}
+/* פחות עומס בכרטיסים: בלי דוגמת נקודות ובלי עיגול קישוט, זוהר רך יותר */
+.case::after,.ap-art::before,.ap-art::after{display:none}
+.case,.case.alva{background:radial-gradient(65% 85% at var(--gx) 0%,color-mix(in srgb,var(--pg) 30%,transparent) 0%,transparent 60%),linear-gradient(160deg,#1A2638,#16202E 60%)}
+.ap-art{background:linear-gradient(160deg,#1C3540,#16202E 75%)}

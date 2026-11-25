@@ -10,4 +10,4 @@
 אין במאגר סודות: כתובת ה-webhook של הטופס ציבורית ממילא, ומוגנת בבדיקת מקור, מלכודת לבוטים ובדיקת שדות.
 
 ## קרדיט לתמונות
-התמונות ב-`site/img/hx/` מ-Unsplash (רישיון Unsplash: שימוש חופשי, גם מסחרי, בלי חובת קרדיט). צלמים: Ryan Stone, Polina Kuzovkova, The Anam, Clay Banks, Iglucraft, Ella Olsson, Orkun Orcan, Tim Toomey, iman zaker, ABHISHEK HAJARE, Laura Peruchi, Reshma Mallecha, Antonio Groß.
+התמונות ב-`site/img/hx/` מ-Unsplash (רישיון Unsplash: שימוש חופשי, גם מסחרי, בלי חובת קרדיט). צלמים: Ryan Stone, Polina Kuzovkova, The Anam, Clay Banks, Iglucraft, Ella Olsson, Orkun Orcan, Tim Toomey, iman zaker, ABHISHEK HAJARE, Laura Peruchi, Reshma Mallecha, Antonio Groß, Alex Marc Wagner, Nina Mercado, Cecep Rahmat, Rohit Choudhari, Sander Yigin, Artem Balashevsky.

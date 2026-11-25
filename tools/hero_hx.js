@@ -4,7 +4,7 @@ const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
 const stage=$('hxs'),hero=document.querySelector('.hx');
 const STEPS=[
  {l:'נופש',t:'נופש וצימרים',h:'לוח תפוסה והזמנות',c:'הזמנה מהאתר נכנסת ללוח, והאורחים מקבלים אישור וקוד לדלת.',c1:'#19B5A5',c2:'#FF8A5B'},
- {l:'קייטרינג',t:'קייטרינג ואולם שמחות',h:'יומן אירועים, מנות ומקדמות',c:'תזכורת על מקדמה יוצאת לבד, והתשלום מתעדכן ביומן.',c1:'#C2405F',c2:'#E3B35A'},
+ {l:'קייטרינג',t:'קייטרינג ואולם שמחות',h:'בחירת תפריט לאירוע',c:'המשפחה בוחרת מנות מהטלפון, והכמויות למטבח מחושבות לבד.',c1:'#C2405F',c2:'#E3B35A'},
  {l:'מוסך',t:'מוסך',h:'לוח עבודה לפי שלבים',c:'כשהטיפול מסתיים, הלקוח מקבל הודעה עם קישור לתשלום.',c1:'#FF7A1A',c2:'#5B6B80'},
  {l:'נגרות',t:'דלתות ונגרות',h:'מהמדידה ועד ההתקנה',c:'כל שלב בייצור מתעדכן, ומועד ההתקנה נשלח למשפחה.',c1:'#B07A48',c2:'#5E7F5B'},
  {l:'הובלות',t:'הובלות ושליחויות',h:'מסלול יומי ואישור מסירה',c:'הלקוח יודע מתי הנהג מגיע, והחתימה נשמרת במערכת.',c1:'#4F7BFF',c2:'#A3E635'}
@@ -16,13 +16,6 @@ const ro=new ResizeObserver(()=>fits.forEach(f=>{const w=f.parentElement.clientW
 fits.forEach(f=>ro.observe(f.parentElement));
 /* לוח תפוסה: מיקום ההזמנות לפי הימים */
 stage.querySelectorAll('.x-bk').forEach(b=>{const s=+getComputedStyle(b).getPropertyValue('--s'),e=+getComputedStyle(b).getPropertyValue('--e');b.style.gridColumn=(s+1)+' / '+(e+2)});
-/* יומן אירועים: 30 ימים, החודש מתחיל ביום ג' */
-{const ev={3:['חתונה','#7A1E3A'],5:['בר מצווה','#C2405F'],9:['ברית','#E3B35A'],10:['שבע ברכות','#B06A3B'],13:['חתונה','#7A1E3A'],17:['אירוסין','#C2405F'],20:['חתונה','#7A1E3A'],24:['בר מצווה','#C2405F'],27:['ברית','#E3B35A']};
- const H=['א׳','ב׳','ג׳','ד׳','ה׳','ו׳','ז׳','ח׳','ט׳','י׳','י״א','י״ב','י״ג','י״ד','ט״ו','ט״ז','י״ז','י״ח','י״ט','כ׳','כ״א','כ״ב','כ״ג','כ״ד','כ״ה','כ״ו','כ״ז','כ״ח','כ״ט','ל׳'];
- const box=$('catdays');let html='';for(let i=0;i<2;i++)html+='<span class="x-e0"></span>';
- for(let d=1;d<=30;d++){const col=(d+1)%7;const e=ev[d];html+='<span class="'+(col===6?'x-shb ':'')+(d===3?'x-sel':'')+'">'+H[d-1]+(e?'<i style="--c:'+e[1]+'">'+e[0]+'</i>':'')+'</span>'}
- box.innerHTML=html.replace(/<span class="x-e0"><\/span>/g,'<span class="x-e0"></span>');
- [...box.children].slice(0,33).length;}
 /* המשאית: מעצירה 3 לעצירה 4 */
 const trk=$('hxtrk'),done=stage.querySelector('.x-route.x-done');
 const PTS=[[330,90],[120,90],[120,250]],SEG=[210,160],TOT=370;

@@ -3,7 +3,7 @@ const $=id=>document.getElementById(id);
 const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
 const stage=$('hxs'),hero=document.querySelector('.hx');
 const STEPS=[
- {l:'נופש',t:'נופש וצימרים',h:'לוח תפוסה והזמנות',c:'הזמנה מהאתר נכנסת ללוח, והאורחים מקבלים אישור וקוד לדלת.',c1:'#19B5A5',c2:'#FF8A5B'},
+ {l:'נופש',t:'נופש וצימרים',h:'אתר הזמנות לצימרים',c:'האורח בוחר בקתה ותאריכים ומשלם, ומקבל לבד אישור וקוד לדלת.',c1:'#19B5A5',c2:'#FF8A5B'},
  {l:'קייטרינג',t:'קייטרינג ואולם שמחות',h:'בחירת תפריט לאירוע',c:'המשפחה בוחרת מנות מהטלפון, והכמויות למטבח מחושבות לבד.',c1:'#C2405F',c2:'#E3B35A'},
  {l:'מוסך',t:'מוסך',h:'לוח עבודה לפי שלבים',c:'כשהטיפול מסתיים, הלקוח מקבל הודעה עם קישור לתשלום.',c1:'#FF7A1A',c2:'#5B6B80'},
  {l:'נגרות',t:'דלתות ונגרות',h:'מהמדידה ועד ההתקנה',c:'כל שלב בייצור מתעדכן, ומועד ההתקנה נשלח למשפחה.',c1:'#B07A48',c2:'#5E7F5B'},
@@ -15,7 +15,6 @@ const fits=[...stage.querySelectorAll('.hx-fit')];
 const ro=new ResizeObserver(()=>fits.forEach(f=>{const w=f.parentElement.clientWidth;f.style.setProperty('--k',w/ +f.dataset.w)}));
 fits.forEach(f=>ro.observe(f.parentElement));
 /* לוח תפוסה: מיקום ההזמנות לפי הימים */
-stage.querySelectorAll('.x-bk').forEach(b=>{const s=+getComputedStyle(b).getPropertyValue('--s'),e=+getComputedStyle(b).getPropertyValue('--e');b.style.gridColumn=(s+1)+' / '+(e+2)});
 /* המשאית: מעצירה 3 לעצירה 4 */
 const trk=$('hxtrk'),done=stage.querySelector('.x-route.x-done');
 const PTS=[[330,90],[120,90],[120,250]],SEG=[210,160],TOT=370;

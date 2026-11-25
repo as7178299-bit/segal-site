@@ -32,3 +32,20 @@
 .case::after,.ap-art::before,.ap-art::after{display:none}
 .case,.case.alva{background:radial-gradient(65% 85% at var(--gx) 0%,color-mix(in srgb,var(--pg) 30%,transparent) 0%,transparent 60%),linear-gradient(160deg,#1A2638,#16202E 60%)}
 .ap-art{background:linear-gradient(160deg,#1C3540,#16202E 75%)}
+/* ===== גרסה מעודנת: הפרויקטים בלי קופסה כהה. הטקסט על הרקע, המכשירים על במה בהירה בגוון הפרויקט ===== */
+.case,.case.alva{--pink:var(--ink);--pmut:var(--muted);background:none!important;box-shadow:none;color:var(--ink);
+  padding:clamp(12px,2vw,24px) 0;border-radius:0;overflow:visible}
+.case::before,.case::after{display:none}
+.case.ohs{--stage:light-dark(#ECEBFA,#1F2244);--pg:#5B4FD6}
+.case.alva{--stage:light-dark(#E9F2E6,#1B2C20);--pg:#4E8E3E}
+.case>div:not(.ctext){background:radial-gradient(80% 90% at 50% 0%,color-mix(in srgb,var(--pg) 14%,transparent),transparent 70%),var(--stage);
+  border-radius:28px;padding:clamp(20px,3.2vw,44px) clamp(16px,3vw,40px) clamp(18px,2.6vw,32px)}
+.case+.case{margin-top:clamp(48px,7vw,96px)}
+.pill{color:var(--muted);border-color:var(--line)}
+.roles div{border-inline-start-color:color-mix(in srgb,var(--pg) 55%,transparent)}
+.outs li::before{background:var(--pg)}
+.case .btn.pri{background:var(--action);color:var(--on-action)}
+.case .btn.pri:hover{box-shadow:0 10px 24px -10px rgba(22,32,46,.6)}
+.tabs button{border-color:color-mix(in srgb,var(--ink) 16%,transparent);color:var(--muted)}
+.tabs button:hover{color:var(--ink);border-color:color-mix(in srgb,var(--ink) 35%,transparent)}
+.tabs button[aria-pressed=true]{background:var(--ink);color:var(--bg);border-color:var(--ink)}

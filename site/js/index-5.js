@@ -1,8 +1,13 @@
 {
-/* כפתור המייל: פותח את תוכנת המייל, ובנוסף מעתיק את הכתובת. במחשב בלי תוכנת מייל מוגדרת קישור mailto לא עושה כלום */
-const m=document.getElementById('rmail');
-if(m){m.addEventListener('click',async()=>{
-  const sp=m.querySelector('span'),orig=sp.textContent;
-  try{await navigator.clipboard.writeText('segalautomations@gmail.com');sp.textContent='הכתובת הועתקה';sp.dir='rtl';setTimeout(()=>{sp.textContent=orig;sp.dir='ltr'},2200)}catch{}
-});}
+const acc=document.getElementById('acc');
+if(acc){
+  const items=[...acc.children];
+  const open=el=>items.forEach(x=>{const on=x===el;x.classList.toggle('on',on);x.setAttribute('aria-expanded',on)});
+  items.forEach(el=>{
+    el.addEventListener('mouseenter',()=>matchMedia('(hover:hover)').matches&&open(el));
+    el.addEventListener('focus',()=>open(el));
+    el.addEventListener('click',()=>open(el));
+    el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();open(el)}});
+  });
+}
 }

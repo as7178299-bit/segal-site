@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 400"><defs>
+<linearGradient id="w" x1="0" x2="1"><stop offset="0" stop-color="#E9ECEE"/><stop offset=".5" stop-color="#FBFCFC"/><stop offset="1" stop-color="#DDE1E4"/></linearGradient>
+<linearGradient id="gl" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#BFD3DC"/><stop offset=".5" stop-color="#E4EEF2"/><stop offset="1" stop-color="#AFC6D1"/></linearGradient>
+<linearGradient id="f" x1="0" x2="1"><stop offset="0" stop-color="#4A4F56"/><stop offset="1" stop-color="#2E3237"/></linearGradient></defs>
+<rect x="14" y="8" width="192" height="388" rx="3" fill="url(#f)"/><rect x="22" y="16" width="176" height="376" rx="2" fill="url(#w)"/>
+<rect x="62" y="44" width="16" height="316" rx="3" fill="url(#gl)" stroke="#9FB3BD"/>
+<g fill="none" stroke="#C7CDD2"><rect x="96" y="44" width="80" height="140" rx="3"/><rect x="96" y="214" width="80" height="146" rx="3"/></g>
+<rect x="160" y="192" width="30" height="7" rx="3.5" fill="#2E3237"/><circle cx="164" cy="214" r="4" fill="#2E3237"/></svg>

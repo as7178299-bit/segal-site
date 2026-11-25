@@ -17,8 +17,8 @@ fits.forEach(f=>ro.observe(f.parentElement));
 /* לוח תפוסה: מיקום ההזמנות לפי הימים */
 /* המשאית: מעצירה 3 לעצירה 4 */
 const trk=$('hxtrk'),done=stage.querySelector('.x-route.x-done');
-const PTS=[[330,90],[120,90],[120,250]],SEG=[210,160],TOT=370;
-function truckAt(p){let d=p*TOT,x,y;if(d<=SEG[0]){x=330-d;y=90}else{x=120;y=90+(d-SEG[0])}trk.setAttribute('transform','translate('+x+' '+y+')');done.style.strokeDashoffset=(.507*(1-p)).toFixed(4)}
+const A=[548,520],B=[690,506],F0=.1695;
+function truckAt(p){const x=A[0]+(B[0]-A[0])*p,y=A[1]+(B[1]-A[1])*p;trk.setAttribute('transform','translate('+x.toFixed(1)+' '+y.toFixed(1)+')');done.style.strokeDashoffset=(F0*(1-p)).toFixed(4)}
 let raf=0;function runTruck(){cancelAnimationFrame(raf);if(reduce){truckAt(1);return}truckAt(0);const t0=performance.now();(function f(t){const p=Math.min((t-t0)/(P2-P1-150),1);truckAt(p<.5?2*p*p:1-Math.pow(-2*p+2,2)/2);if(p<1)raf=requestAnimationFrame(f)})(t0)}
 /* שלבים */
 const chips=$('hxchips');

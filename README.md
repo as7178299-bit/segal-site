@@ -11,3 +11,10 @@
 
 ## קרדיט לתמונות
 התמונות ב-`site/img/hx/` מ-Unsplash (רישיון Unsplash: שימוש חופשי, גם מסחרי, בלי חובת קרדיט). צלמים: Ryan Stone, Polina Kuzovkova, The Anam, Clay Banks, Iglucraft, Ella Olsson, Orkun Orcan, Tim Toomey, iman zaker, ABHISHEK HAJARE, Laura Peruchi, Reshma Mallecha, Antonio Groß, Alex Marc Wagner, Nina Mercado, Cecep Rahmat, Rohit Choudhari, Sander Yigin, Artem Balashevsky.
+
+תמונות רכבים מ-Wikimedia Commons, ברישיון CC BY-SA 4.0 (מותר שימוש מסחרי עם קרדיט):
+- `car-i30.webp`: "2017 hyundai i30 front-side", צלם: Ki hoon, נחתך והוקטן.
+- `car-corolla.webp`: "Lateral Toyota Corolla Hybrid CRI 10 2021 1613", צלם: Mariordo (Mario Roberto Durán Ortiz), נחתך והוקטן.
+
+המפה (`map-rehovot.webp`): © OpenStreetMap contributors, רישיון ODbL. הקרדיט מוצג על המפה עצמה.
+הדמיות הדלתות (`door-*.svg`) וצללית הרכב (`car-sil.svg`): ציור מקורי.

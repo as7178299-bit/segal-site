@@ -10,7 +10,7 @@ m = re.search(r'<script>\s*\{\s*const reduce=.*?const STEPS=.*?</script>', s, fl
 assert m, 'hero script not found'
 s = s[:m.start()] + '<script>\n' + (t / 'hero_hx.js').read_text(encoding='utf-8') + '</script>' + s[m.end():]
 i = s.rindex('</style>')
-s = s[:i] + (t / 'hero_hx.css').read_text(encoding='utf-8') + s[i:]
+s = s[:i] + (t / 'hero_hx.css').read_text(encoding='utf-8') + (t / 'unify.css').read_text(encoding='utf-8') + s[i:]
 s = s.replace('<title>', '<meta name="robots" content="noindex">\n<title>טיוטה · ', 1)
 pathlib.Path(sys.argv[1]).write_text(s, encoding='utf-8')
 print('ok')

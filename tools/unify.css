@@ -1,0 +1,30 @@
+/* ===== שפה אחת: מסגרת בכחול לילה, ענן וטורקיז. צבע רק בתוך המסכים ===== */
+:root{--bg:light-dark(#F2F5F8,#16202E);--card:light-dark(#FFFFFF,#1B2738)}
+/* כותרת קטנה: אותה גלולה כמו בפתיחה */
+.label{display:inline-flex;align-items:center;gap:8px;letter-spacing:0;font-size:14px;font-weight:500;color:var(--muted);
+  border:1px solid var(--line);background:var(--card);border-radius:999px;padding:6px 12px;margin:0 0 16px}
+.label::before{content:"";flex:none;width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 22%,transparent)}
+.cpanel .label{color:#C7D2DF;border-color:rgba(255,255,255,.16);background:rgba(255,255,255,.05)}
+.cpanel .label::before{background:#3FD9C6;box-shadow:0 0 0 4px rgba(63,217,198,.22)}
+/* כרטיסי הפרויקטים: בסיס כחול לילה כמו הפתיחה, צבע הפרויקט רק כזוהר וכקו */
+.case,.case.alva{--pc:#16202E;--pc2:#1C2940;--pa:#3FD9C6;--pmut:#C7D2DF;
+  background:radial-gradient(70% 95% at var(--gx) 0%,color-mix(in srgb,var(--pg) 42%,transparent) 0%,transparent 62%),
+    radial-gradient(50% 60% at calc(100% - var(--gx)) 100%,rgba(63,217,198,.08),transparent 70%),
+    linear-gradient(160deg,var(--pc2),var(--pc) 60%)}
+.case::before{background:linear-gradient(150deg,color-mix(in srgb,var(--pg) 75%,#fff 10%),transparent 38%,transparent 72%,rgba(255,255,255,.08))}
+.case::after{opacity:.1}
+.case{box-shadow:0 40px 80px -55px color-mix(in srgb,var(--pg) 55%,#16202E)}
+.case .btn.pri{background:#3FD9C6;color:#16202E}
+.case .btn.pri:hover{box-shadow:0 12px 28px -12px rgba(63,217,198,.7)}
+/* כרטיסי "מה ניתן לבנות": אותו רקע לכל הכרטיסים, הדוגמה בפנים נשארת צבעונית */
+.ap,.ap.c2,.ap.c3,.ap.c4{--g1:#1D5C63;--g2:#16202E;background:var(--card)}
+.ap-art{background:radial-gradient(110% 120% at 100% 0%,#1F6A6E 0%,#16202E 68%)}
+.ap.on{box-shadow:0 30px 60px -38px rgba(22,32,46,.7)}
+.ti{background:linear-gradient(135deg,#16A394,#0E6F73);box-shadow:0 6px 14px -6px #0E6F73}
+/* שלבי העבודה: שלב פעיל בטורקיז בלבד */
+.proc li:nth-child(n){--sc:#16A394}
+/* שאלות נפוצות: אותו סידור כמו שאר הקטעים, כותרת מעל */
+.faqw{grid-template-columns:1fr;gap:0}
+.faqw .sech{position:static;margin:0 0 clamp(28px,4vw,48px)}
+.faqw .faq{max-width:880px}
+.faq .box{background:var(--card)}

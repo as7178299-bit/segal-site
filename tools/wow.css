@@ -1,0 +1,39 @@
+/* ===== וואו: תאורה עדינה, עומק ותנועה. הכול נעצר כשמבקשים פחות תנועה ===== */
+@property --wa{syntax:'<angle>';inherits:false;initial-value:0deg}
+/* אור רך שנע לאט מאחורי החלק הבהיר של הדף */
+.wow-aur{position:fixed;inset:-20vmax;z-index:-1;pointer-events:none;opacity:.55;
+  background:radial-gradient(28vmax 24vmax at 78% 30%,light-dark(rgba(22,163,148,.16),rgba(63,217,198,.08)),transparent 70%),
+             radial-gradient(30vmax 26vmax at 18% 72%,light-dark(rgba(124,107,224,.12),rgba(124,107,224,.07)),transparent 70%);
+  animation:wowAur 38s ease-in-out infinite alternate}
+@keyframes wowAur{to{transform:translate3d(-6vmax,4vmax,0) rotate(8deg)}}
+/* זרקור שעוקב אחרי העכבר על הכרטיסים */
+.case,.ap{--mx:50%;--my:50%}
+.wow-spot{position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:0;opacity:0;transition:opacity .35s;
+  background:radial-gradient(420px circle at var(--mx) var(--my),rgba(255,255,255,.55),transparent 55%);mix-blend-mode:soft-light}
+.case:hover>.wow-spot,.ap:hover>.wow-spot{opacity:1}
+.ap{position:relative}
+.ap .wow-spot{background:radial-gradient(300px circle at var(--mx) var(--my),rgba(63,217,198,.22),transparent 60%);mix-blend-mode:normal;z-index:2}
+.case>*:not(.wow-spot){position:relative;z-index:1}
+/* כרטיסי "מה ניתן לבנות": מתרוממים מעט במעבר */
+.ap{transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s}
+@media (hover:hover){.ap:hover{transform:translateY(-4px)}}
+/* שלבי העבודה: קו בטורקיז, הנקודה הפעילה זוהרת */
+.proc::after{background:linear-gradient(to left,#16A394,#3FD9C6)!important}
+.proc li.on .dot{box-shadow:0 0 0 6px color-mix(in srgb,#16A394 16%,transparent),0 10px 22px -8px #16A394!important}
+.proc li .dot{transition:transform .4s cubic-bezier(.3,1.6,.5,1),background .3s,box-shadow .3s}
+.proc li.on .dot{transform:scale(1.06)}
+/* שאלות: שאלה פתוחה מקבלת פס טורקיז */
+.faq details{position:relative}
+.faq details::before{content:"";position:absolute;inset-block:14px;inset-inline-start:0;width:3px;border-radius:3px;background:#16A394;transform:scaleY(0);transition:transform .35s}
+.faq details[open]::before{transform:scaleY(1)}
+.faq summary:hover{color:light-dark(#0E6F73,#3FD9C6)}
+/* יצירת קשר: מסגרת אור מסתובבת ואורורה בתוך הלוח */
+.cpanel{position:relative;isolation:isolate;overflow:hidden}
+.cpanel::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1.5px;pointer-events:none;z-index:2;
+  background:conic-gradient(from var(--wa),transparent 0 62%,rgba(63,217,198,.9) 75%,rgba(154,140,255,.7) 82%,transparent 92%);
+  mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0);animation:wowSpin 9s linear infinite}
+@keyframes wowSpin{to{--wa:360deg}}
+.cpanel::after{content:"";position:absolute;width:60%;aspect-ratio:1;right:-15%;top:-35%;z-index:-1;border-radius:50%;pointer-events:none;
+  background:radial-gradient(circle,rgba(63,217,198,.22),transparent 65%);animation:wowAur 16s ease-in-out infinite alternate}
+.cpanel .lform{box-shadow:0 30px 60px -30px rgba(0,0,0,.6)}
+@media (prefers-reduced-motion:reduce){.wow-aur,.cpanel::before,.cpanel::after{animation:none}.ap:hover{transform:none}}

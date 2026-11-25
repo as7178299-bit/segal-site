@@ -1,35 +1,62 @@
 {
 const $=id=>document.getElementById(id);
 const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
-const stage=$('hxs');
+const stage=$('hxs'),hero=document.querySelector('.hx');
 const STEPS=[
- {t:'09:14',l:'פנייה',h:'פנייה חדשה מהאתר',c:'מבקר באתר של עלווה משאיר פרטים, והפנייה נכנסת למערכת.',k:'a',tag:'<b>עלווה</b> · אתר לכפר נופש',d:3800},
- {t:'11:32',l:'תשלום',h:'הזמנה ותשלום',c:'הורה מזמין ספרים לילדים ומשלם, והמסך של המזכירות מתעדכן.',k:'o',tag:'<b>אור הספר</b> · מערכת הזמנות',d:4200},
- {t:'02:00',l:'לילה',h:'בשעות השקטות',c:'תזכורות, הזמנות לספקים וגיבוי רצים לבד.',k:'o',tag:'<b>אור הספר</b> · מערכת הזמנות',d:4000},
- {t:'07:00',l:'בוקר',h:'דוח הבוקר מחכה',c:'סיכום הפעילות ומה שדורש טיפול היום, במייל.',k:'r',tag:'<b>אור הספר</b> · מסך הבית',d:4600}
+ {l:'נופש',t:'נופש וצימרים',h:'לוח תפוסה והזמנות',c:'הזמנה מהאתר נכנסת ללוח, והאורחים מקבלים אישור וקוד לדלת.',c1:'#19B5A5',c2:'#FF8A5B'},
+ {l:'קייטרינג',t:'קייטרינג ואולם שמחות',h:'יומן אירועים, מנות ומקדמות',c:'תזכורת על מקדמה יוצאת לבד, והתשלום מתעדכן ביומן.',c1:'#C2405F',c2:'#E3B35A'},
+ {l:'מוסך',t:'מוסך',h:'לוח עבודה לפי שלבים',c:'כשהטיפול מסתיים, הלקוח מקבל הודעה עם קישור לתשלום.',c1:'#FF7A1A',c2:'#5B6B80'},
+ {l:'נגרות',t:'דלתות ונגרות',h:'מהמדידה ועד ההתקנה',c:'כל שלב בייצור מתעדכן, ומועד ההתקנה נשלח למשפחה.',c1:'#B07A48',c2:'#5E7F5B'},
+ {l:'הובלות',t:'הובלות ושליחויות',h:'מסלול יומי ואישור מסירה',c:'הלקוח יודע מתי הנהג מגיע, והחתימה נשמרת במערכת.',c1:'#4F7BFF',c2:'#A3E635'}
 ];
+const DUR=5600,P1=500,P2=2600;
+/* התאמת המסך החי לגודל המסגרת */
+const fits=[...stage.querySelectorAll('.hx-fit')];
+const ro=new ResizeObserver(()=>fits.forEach(f=>{const w=f.parentElement.clientWidth;f.style.setProperty('--k',w/ +f.dataset.w)}));
+fits.forEach(f=>ro.observe(f.parentElement));
+/* לוח תפוסה: מיקום ההזמנות לפי הימים */
+stage.querySelectorAll('.x-bk').forEach(b=>{const s=+getComputedStyle(b).getPropertyValue('--s'),e=+getComputedStyle(b).getPropertyValue('--e');b.style.gridColumn=(s+1)+' / '+(e+2)});
+/* יומן אירועים: 30 ימים, החודש מתחיל ביום ג' */
+{const ev={3:['חתונה','#7A1E3A'],5:['בר מצווה','#C2405F'],9:['ברית','#E3B35A'],10:['שבע ברכות','#B06A3B'],13:['חתונה','#7A1E3A'],17:['אירוסין','#C2405F'],20:['חתונה','#7A1E3A'],24:['בר מצווה','#C2405F'],27:['ברית','#E3B35A']};
+ const H=['א׳','ב׳','ג׳','ד׳','ה׳','ו׳','ז׳','ח׳','ט׳','י׳','י״א','י״ב','י״ג','י״ד','ט״ו','ט״ז','י״ז','י״ח','י״ט','כ׳','כ״א','כ״ב','כ״ג','כ״ד','כ״ה','כ״ו','כ״ז','כ״ח','כ״ט','ל׳'];
+ const box=$('catdays');let html='';for(let i=0;i<2;i++)html+='<span class="x-e0"></span>';
+ for(let d=1;d<=30;d++){const col=(d+1)%7;const e=ev[d];html+='<span class="'+(col===6?'x-shb ':'')+(d===3?'x-sel':'')+'">'+H[d-1]+(e?'<i style="--c:'+e[1]+'">'+e[0]+'</i>':'')+'</span>'}
+ box.innerHTML=html.replace(/<span class="x-e0"><\/span>/g,'<span class="x-e0"></span>');
+ [...box.children].slice(0,33).length;}
+/* המשאית: מעצירה 3 לעצירה 4 */
+const trk=$('hxtrk'),done=stage.querySelector('.x-route.x-done');
+const PTS=[[330,90],[120,90],[120,250]],SEG=[210,160],TOT=370;
+function truckAt(p){let d=p*TOT,x,y;if(d<=SEG[0]){x=330-d;y=90}else{x=120;y=90+(d-SEG[0])}trk.setAttribute('transform','translate('+x+' '+y+')');done.style.strokeDashoffset=(.507*(1-p)).toFixed(4)}
+let raf=0;function runTruck(){cancelAnimationFrame(raf);if(reduce){truckAt(1);return}truckAt(0);const t0=performance.now();(function f(t){const p=Math.min((t-t0)/(P2-P1-150),1);truckAt(p<.5?2*p*p:1-Math.pow(-2*p+2,2)/2);if(p<1)raf=requestAnimationFrame(f)})(t0)}
+/* שלבים */
 const chips=$('hxchips');
-STEPS.forEach((s,i)=>{const b=document.createElement('button');b.type='button';b.className='hx-chip';b.innerHTML='<span><i></i></span>';b.append(s.l);b.setAttribute('aria-label',s.t+' · '+s.h);b.addEventListener('click',()=>{go(i);if(playing)arm()});chips.append(b)});
-let cur=0,timer=0,playing=!reduce,visible=true;
-const ils=v=>v.toLocaleString('he-IL')+' ₪';
-function count(el,a,b){if(reduce){el.textContent=ils(b);return}const t0=performance.now();(function k(t){const p=Math.min((t-t0)/900,1);el.textContent=ils(Math.round(a+(b-a)*(1-Math.pow(1-p,3))));if(p<1)requestAnimationFrame(k)})(t0)}
+STEPS.forEach((s,i)=>{const b=document.createElement('button');b.type='button';b.className='hx-chip';b.innerHTML='<span><i></i></span>';b.append(s.l);b.setAttribute('aria-label',s.t);b.addEventListener('click',()=>{go(i);arm()});chips.append(b)});
+const cards=[...stage.querySelectorAll('.hx-card')];
+let cur=0,timers=[],playing=!reduce,visible=true;
+function clear(){timers.forEach(clearTimeout);timers=[]}
+function phase(n){stage.classList.toggle('x-p1',n>=1);stage.classList.toggle('x-p2',n>=2);
+  cards.forEach(c=>c.classList.toggle('x-on',+c.dataset.i===cur&&((n===1&&c.classList.contains('x-ta'))||(n===2&&c.classList.contains('x-tb')))));
+  if(n===1&&cur===4)runTruck();if(n===2&&cur===4){cancelAnimationFrame(raf);truckAt(1)}}
 function go(i){
-  cur=i;const s=STEPS[i];stage.dataset.s=i;
-  stage.querySelectorAll('img[data-k]').forEach(im=>im.classList.toggle('on',im.dataset.k===s.k));
-  $('hxtag').innerHTML=s.tag;
+  clear();cur=i;const s=STEPS[i];stage.dataset.s=i;
+  stage.querySelectorAll('.x-sc').forEach(el=>el.classList.toggle('x-on',+el.dataset.i===i));
+  $('hxtag').innerHTML='דוגמה לעסק מסוג: <b>'+s.t+'</b>';
   $('hxt').textContent=s.t;$('hxh').textContent=s.h;$('hxc').textContent=s.c;
-  [...chips.children].forEach((c,j)=>{c.classList.toggle('hx-dn',j<i);c.classList.toggle('hx-cu',j===i);c.classList.toggle('hx-hd',!playing);c.style.setProperty('--d',s.d+'ms');c.setAttribute('aria-current',j===i?'step':'false');
-    const f=c.querySelector('i');if(j===i){f.style.animation='none';f.offsetWidth;f.style.animation=''}});
-  if(i===1)count($('hxrev'),38200,43000);else $('hxrev').textContent=ils(38200);
+  hero.style.setProperty('--hc1',s.c1);hero.style.setProperty('--hc2',s.c2);
+  [...chips.children].forEach((c,j)=>{c.classList.toggle('hx-dn',j<i);c.classList.toggle('hx-cu',j===i);c.classList.toggle('hx-hd',!playing);c.style.setProperty('--d',DUR+'ms');c.setAttribute('aria-current',j===i?'true':'false');const f=c.querySelector('i');if(j===i){f.style.animation='none';f.offsetWidth;f.style.animation=''}});
+  phase(0);if(i===4){truckAt(0)}
+  if(reduce){phase(2);return}
+  timers.push(setTimeout(()=>phase(1),P1),setTimeout(()=>phase(2),P2));
 }
-function arm(){clearTimeout(timer);if(playing&&visible)timer=setTimeout(()=>{go((cur+1)%STEPS.length);arm()},STEPS[cur].d)}
-function setPlay(p){playing=p;$('hxpath').setAttribute('d',p?'M4 2h3v12H4zM9 2h3v12H9z':'M4 2l10 6-10 6z');$('hxpp').setAttribute('aria-label',p?'עצירה':'המשך');[...chips.children].forEach(c=>c.classList.toggle('hx-hd',!p));if(p){go((cur+1)%STEPS.length);arm()}else clearTimeout(timer)}
+function arm(){if(playing&&visible)timers.push(setTimeout(()=>{go((cur+1)%STEPS.length);arm()},DUR))}
+function setPlay(p){playing=p;$('hxpath').setAttribute('d',p?'M4 2h3v12H4zM9 2h3v12H9z':'M4 2l10 6-10 6z');$('hxpp').setAttribute('aria-label',p?'עצירה':'המשך');
+  if(p){go((cur+1)%STEPS.length);arm()}else{clear();phase(2);[...chips.children].forEach(c=>c.classList.add('hx-hd'))}}
 $('hxpp').addEventListener('click',()=>setPlay(!playing));
 if(reduce)$('hxpath').setAttribute('d','M4 2l10 6-10 6z');
 go(0);arm();
-/* עוצרים כשהפתיחה לא על המסך או שהלשונית מוסתרת */
-const hero=document.querySelector('.hx');
-new IntersectionObserver(([e])=>{visible=e.isIntersecting;document.body.classList.toggle('hxdark',e.intersectionRatio>0&&e.boundingClientRect.bottom>70);arm()},{threshold:[0,.01,.1,.5,1],rootMargin:'0px 0px 0px 0px'}).observe(hero);
-addEventListener('scroll',()=>{document.body.classList.toggle('hxdark',hero.getBoundingClientRect().bottom>70)},{passive:true});
-document.addEventListener('visibilitychange',()=>{visible=!document.hidden;arm()});
+/* עוצרים כשהפתיחה לא על המסך או שהלשונית מוסתרת; הכותרת העליונה כהה מעל הפתיחה */
+const setDark=()=>document.body.classList.toggle('hxdark',hero.getBoundingClientRect().bottom>70);
+new IntersectionObserver(([e])=>{const v=e.isIntersecting;if(v!==visible){visible=v;if(v&&playing){go(cur);arm()}else if(!v)clear()}},{threshold:0}).observe(hero);
+addEventListener('scroll',setDark,{passive:true});setDark();
+document.addEventListener('visibilitychange',()=>{const v=!document.hidden;if(v===visible)return;visible=v;if(v&&playing){go(cur);arm()}else if(!v)clear()});
 }

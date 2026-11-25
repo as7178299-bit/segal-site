@@ -32,8 +32,7 @@ function phase(n){stage.classList.toggle('x-p1',n>=1);stage.classList.toggle('x-
 function go(i){
   clear();cur=i;const s=STEPS[i];stage.dataset.s=i;
   stage.querySelectorAll('.x-sc').forEach(el=>el.classList.toggle('x-on',+el.dataset.i===i));
-  $('hxtag').innerHTML='דוגמה לעסק מסוג: <b>'+s.t+'</b>';
-  $('hxt').textContent=s.t;$('hxh').textContent=s.h;$('hxc').textContent=s.c;
+  $('hxt').textContent=s.t;$('hxh').textContent=s.h;
   hero.style.setProperty('--hc1',s.c1);hero.style.setProperty('--hc2',s.c2);
   [...chips.children].forEach((c,j)=>{c.classList.toggle('hx-dn',j<i);c.classList.toggle('hx-cu',j===i);c.classList.toggle('hx-hd',!playing);c.style.setProperty('--d',DUR+'ms');c.setAttribute('aria-current',j===i?'true':'false');const f=c.querySelector('i');if(j===i){f.style.animation='none';f.offsetWidth;f.style.animation=''}});
   phase(0);if(i===4){truckAt(0)}

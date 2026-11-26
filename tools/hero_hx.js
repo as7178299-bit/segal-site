@@ -24,7 +24,7 @@ let raf=0;function runTruck(){cancelAnimationFrame(raf);if(reduce){truckAt(1);re
 const chips=$('hxchips');
 STEPS.forEach((s,i)=>{const b=document.createElement('button');b.type='button';b.className='hx-chip';b.innerHTML='<span><i></i></span>';b.append(s.l);b.setAttribute('aria-label',s.t);b.addEventListener('click',()=>{go(i);arm()});chips.append(b)});
 const cards=[...stage.querySelectorAll('.hx-card')];
-let cur=0,timers=[],playing=!reduce,visible=true;
+let cur=0,timers=[],playing=!reduce,visible=true,advT=0,advAt=0,remain=DUR,held=false;
 function clear(){timers.forEach(clearTimeout);timers=[]}
 function phase(n){stage.classList.toggle('x-p1',n>=1);stage.classList.toggle('x-p2',n>=2);
   cards.forEach(c=>c.classList.toggle('x-on',+c.dataset.i===cur&&((n===1&&c.classList.contains('x-ta'))||(n===2&&c.classList.contains('x-tb')))));
@@ -39,15 +39,26 @@ function go(i){
   if(reduce){phase(2);return}
   timers.push(setTimeout(()=>phase(1),P1),setTimeout(()=>phase(2),P2));
 }
-function arm(){if(playing&&visible)timers.push(setTimeout(()=>{go((cur+1)%STEPS.length);arm()},DUR))}
+function arm(ms=DUR){clearTimeout(advT);if(playing&&visible&&!held){advAt=Date.now();remain=ms;advT=setTimeout(()=>{go((cur+1)%STEPS.length);arm()},ms)}}
+/* עצירה זמנית כשמצביעים על הדוגמה או נוגעים בה, והמשך מאותה נקודה */
+function hold(){if(!playing||held)return;held=true;clearTimeout(advT);remain=Math.max(0,remain-(Date.now()-advAt));hero.classList.add('hx-hold')}
+function release(){if(!held)return;held=false;hero.classList.remove('hx-hold');arm(Math.max(900,remain))}
+stage.addEventListener('pointerenter',e=>{if(e.pointerType==='mouse')hold()});
+stage.addEventListener('pointerleave',e=>{if(e.pointerType==='mouse')release()});
+/* החלקה בטלפון: ימינה לדוגמה הבאה, שמאלה לקודמת (כיוון קריאה מימין לשמאל) */
+let tx=0,ty=0,tt=0,rel=0;
+stage.addEventListener('touchstart',e=>{const t=e.touches[0];tx=t.clientX;ty=t.clientY;tt=Date.now();clearTimeout(rel);hold()},{passive:true});
+stage.addEventListener('touchend',e=>{const t=e.changedTouches[0],dx=t.clientX-tx,dy=t.clientY-ty;
+  if(Math.abs(dx)>45&&Math.abs(dx)>Math.abs(dy)*1.3&&Date.now()-tt<900){const n=STEPS.length;held=false;hero.classList.remove('hx-hold');go((cur+(dx>0?1:n-1))%n);arm();return}
+  rel=setTimeout(release,2500)},{passive:true});
 function setPlay(p){playing=p;$('hxpath').setAttribute('d',p?'M4 2h3v12H4zM9 2h3v12H9z':'M4 2l10 6-10 6z');$('hxpp').setAttribute('aria-label',p?'עצירה':'המשך');
-  if(p){go((cur+1)%STEPS.length);arm()}else{clear();phase(2);[...chips.children].forEach(c=>c.classList.add('hx-hd'))}}
+  if(p){held=false;hero.classList.remove('hx-hold');go((cur+1)%STEPS.length);arm()}else{clear();clearTimeout(advT);phase(2);[...chips.children].forEach(c=>c.classList.add('hx-hd'))}}
 $('hxpp').addEventListener('click',()=>setPlay(!playing));
 if(reduce)$('hxpath').setAttribute('d','M4 2l10 6-10 6z');
 go(0);arm();
 /* עוצרים כשהפתיחה לא על המסך או שהלשונית מוסתרת; הכותרת העליונה כהה מעל הפתיחה */
 const setDark=()=>document.body.classList.toggle('hxdark',hero.getBoundingClientRect().bottom>70);
-new IntersectionObserver(([e])=>{const v=e.isIntersecting;if(v!==visible){visible=v;if(v&&playing){go(cur);arm()}else if(!v)clear()}},{threshold:0}).observe(hero);
+new IntersectionObserver(([e])=>{const v=e.isIntersecting;if(v!==visible){visible=v;if(v&&playing){go(cur);arm()}else if(!v){clear();clearTimeout(advT)}}},{threshold:0}).observe(hero);
 addEventListener('scroll',setDark,{passive:true});setDark();
-document.addEventListener('visibilitychange',()=>{const v=!document.hidden;if(v===visible)return;visible=v;if(v&&playing){go(cur);arm()}else if(!v)clear()});
+document.addEventListener('visibilitychange',()=>{const v=!document.hidden;if(v===visible)return;visible=v;if(v&&playing){go(cur);arm()}else if(!v){clear();clearTimeout(advT)}});
 }

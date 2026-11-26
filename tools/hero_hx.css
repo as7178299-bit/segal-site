@@ -387,3 +387,6 @@ body.hxdark .top .btn.pri{background:#3FD9C6;color:#16202E}
 .hx-ctxt small .hx-ex{color:var(--hx-mut);font-weight:400}
 .hx-ctxt{min-height:44px}
 .hx-cue .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+
+.hx-hold .hx-chip.hx-cu span i{animation-play-state:paused}
+.hx-stage{touch-action:pan-y}

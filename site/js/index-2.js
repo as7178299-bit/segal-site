@@ -1,76 +1,64 @@
 {
-const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
 const $=id=>document.getElementById(id);
-const P={phone:[1421,560],mail:[1065,245],lap:[947,470],night:[947,380],rep:[947,470],n2:[700,130]};
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const stage=$('hxs'),hero=document.querySelector('.hx');
 const STEPS=[
- {t:'09:14',l:'פנייה',h:'פנייה חדשה',c:'לקוח משאיר פרטים מהטלפון, והפנייה נכנסת למערכת.',sky:0,d:3200},
- {t:'09:15',l:'הצעה',h:'הצעת מחיר נשלחה',c:'הלקוח מקבל הצעה ממותגת במייל, תוך דקה.',sky:1,d:3000},
- {t:'11:32',l:'תשלום',h:'תשלום התקבל',c:'הלקוח מאשר ומשלם, ולוח הבקרה מתעדכן.',sky:1,d:3400},
- {t:'02:00',l:'לילה',h:'תהליכים מתוזמנים',c:'תזכורות, גיבוי והזמנות לספקים רצים בשעות השקטות.',sky:3,d:3400},
- {t:'07:00',l:'דוח',h:'דוח יומי',c:'סיכום הפעילות מחכה בבוקר, בגרפים ברורים.',sky:0,d:4200}
+ {l:'נופש',t:'נופש וצימרים',h:'הזמנה ותשלום באתר',c:'אחרי התשלום האורח מקבל אישור, הוראות הגעה וקוד כניסה.',c1:'#19B5A5',c2:'#FF8A5B'},
+ {l:'קייטרינג',t:'קייטרינג ואולם שמחות',h:'בחירת תפריט לאירוע',c:'המשפחה בוחרת מנות, והכמויות למטבח מחושבות במערכת.',c1:'#C2405F',c2:'#E3B35A'},
+ {l:'מוסך',t:'מוסך',h:'לוח עבודה לפי שלבים',c:'בסיום הטיפול נשלחת ללקוח הודעה עם קישור לתשלום.',c1:'#FF7A1A',c2:'#5B6B80'},
+ {l:'נגרות',t:'דלתות ונגרות',h:'מעקב ייצור והתקנה',c:'כל שלב בייצור מתעדכן, ומועד ההתקנה נשלח ללקוח.',c1:'#B07A48',c2:'#5E7F5B'},
+ {l:'הובלות',t:'הובלות ושליחויות',h:'מסלול יומי ואישור מסירה',c:'הלקוח מקבל זמן הגעה משוער, והמסירה נשמרת עם צילום וחתימה.',c1:'#4F7BFF',c2:'#A3E635'}
 ];
-const chips=$('chips');
-STEPS.forEach((s,i)=>{const b=document.createElement('button');b.className='chip';b.type='button';b.innerHTML='<span></span><i></i>';b.firstChild.textContent=s.l;b.setAttribute('aria-label',s.t+' · '+s.c);b.addEventListener('click',()=>{go(i,true);setPlay(false)});chips.appendChild(b)});
-
-let steamT=1,steamK=1;
-const LOOK=[
- {f:'saturate(1.04) sepia(.12) brightness(1.02)',bg:'linear-gradient(115deg,rgba(255,214,160,.28),transparent 55%)',o:1},
- {f:'none',bg:'transparent',o:0},
- {f:'saturate(1.1) sepia(.28) brightness(.92)',bg:'linear-gradient(100deg,rgba(255,140,70,.38),rgba(120,80,160,.22) 70%)',o:1},
- {f:'saturate(.7) brightness(.42) hue-rotate(-8deg)',bg:'radial-gradient(60% 55% at 42% 42%,rgba(60,90,170,0),rgba(8,14,34,.55))',o:1}];
-function setSky(k){steamT=k===3?0:k===2?.5:1;$('steamcover').style.opacity=k===3?1:0;const L=LOOK[k];$('pw').style.filter=L.f;$('motes').style.opacity=k===3?0:k===2?.6:1;const t=$('tint');t.style.background=L.bg;t.style.opacity=L.o;
-  $('lap').classList.toggle('glow',k===3);$('lap').style.filter=k===3?'brightness(.88)':'none';$('ph').style.filter=k===3?'brightness(.75)':'none'}
-const CIRC=201;
-function ringTo(p){$('ring').setAttribute('stroke-dashoffset',(CIRC*(1-p/100)).toFixed(1));$('pct').textContent=p+'%'}
-function count(el,a,b,f,anim){if(reduce||!anim){el.textContent=f(b);return}const t0=performance.now();(function k(t){const p=Math.min((t-t0)/800,1);el.textContent=f(Math.round(a+(b-a)*(1-Math.pow(1-p,3))));if(p<1)requestAnimationFrame(k)})(t0)}
-const ils=v=>v.toLocaleString('he-IL')+' ₪';
-const BASE_FEED='';
-function feed(txt,time,anim){if(!$('feed'))return;const d=document.createElement('div');if(anim)d.className='new';d.innerHTML='<span></span><small></small>';d.firstChild.textContent=txt;d.lastChild.textContent=time;$('feed').prepend(d);while($('feed').children.length>3)$('feed').lastElementChild.remove()}
-function flash(ids){ids.forEach(k=>{$(k).classList.add('flash');setTimeout(()=>$(k).classList.remove('flash'),900)})}
-const phone=v=>{$('ps').dataset.v=v};
-const NOTES=['note0','note1','note2','note3','note4'];
-function resetUI(){NOTES.forEach(c=>$(c).classList.remove('show'));phone('form');['sbtn','qbtn'].forEach(b=>$(b).classList.remove('tap'));
-  $('n1').textContent='4';$('n2').textContent='6';$('n3').textContent='38,200 ₪';ringTo(64);$('ptx').textContent='38,200 מתוך 60,000 ₪';$('pipe').dataset.s='0';$('dsum').textContent='—'}
-function a0(an){count($('n1'),4,5,String,an);$('pipe').dataset.s='1';if(an)flash(['deal']);feed('פנייה חדשה · דוד לוי','09:14',an);if(an)flash(['k1'])}
-function a1(an){count($('n2'),6,7,String,an);$('pipe').dataset.s='2';$('dsum').textContent='4,800 ₪';if(an)flash(['deal']);feed('הצעת מחיר 2041 נשלחה','09:15',an);if(an)flash(['k2'])}
-function a2(an){count($('n2'),7,6,String,an);$('pipe').dataset.s='3';if(an)flash(['deal']);count($('n3'),38200,43000,ils,an);ringTo(72);$('ptx').textContent='43,000 מתוך 60,000 ₪';feed('תשלום התקבל · 4,800 ₪','11:32',an);if(an)flash(['k2','k3'])}
-function stateUpTo(i){resetUI();if(i>0){phone('sent');a0(false)}if(i>1){phone('quote');a1(false)}if(i>2){phone('paid');a2(false)}}
-const W=ms=>reduce?0:ms;
-let cur=-1,timer,playing=!reduce;
-let pend=[];const T=(f,ms)=>pend.push(setTimeout(f,ms));
-function go(i,jump){clearTimeout(timer);pend.forEach(clearTimeout);pend=[];cur=i;const s=STEPS[i];
-  [...chips.children].forEach((c,j)=>{c.setAttribute('aria-current',j===i);c.classList.toggle('past',j<i);const bar=c.querySelector('i');bar.style.animation='none';bar.offsetWidth;bar.style.animation=(j===i&&playing&&!reduce)?`fill ${s.d}ms linear forwards`:''});
-  $('ct').textContent=s.t;$('st').textContent=s.h;$('cp').textContent=s.c;const ctx=document.querySelector('.captxt');ctx.classList.remove('in');void ctx.offsetWidth;ctx.classList.add('in');
-  $('ph').classList.toggle('act',i<3&&i!==1);$('lap').classList.toggle('act',i>=2);setSky(s.sky);
-  if(jump)stateUpTo(i);else if(i===0)resetUI();
-  NOTES.forEach(c=>$(c).classList.remove('show'));
-  $('ls').dataset.v=i===3?'night':i===4?'rep':'day';
-  document.querySelectorAll('.donut circle').forEach(c=>{const C=201.06;c.setAttribute('stroke-dasharray',i===4?`${c.dataset.l} ${C}`:`0 ${C}`)});
-  T(()=>$('note'+i).classList.add('show'),W(i===0?900:520));
-  if(i===0){T(()=>{$('sbtn').classList.add('tap');T(()=>{phone('sent');a0(true)},W(380))},W(320))}
-  if(i===1){T(()=>{phone('quote');a1(true)},W(380))}
-  if(i===2){T(()=>{$('qbtn').classList.add('tap');T(()=>{phone('paid');a2(true)},W(380))},W(320))}
-  if(playing)timer=setTimeout(()=>go((i+1)%STEPS.length,false),s.d);
+const DUR=5600,P1=500,P2=2600;
+/* התאמת המסך החי לגודל המסגרת */
+const fits=[...stage.querySelectorAll('.hx-fit')];
+const ro=new ResizeObserver(()=>fits.forEach(f=>{const w=f.parentElement.clientWidth;f.style.setProperty('--k',w/ +f.dataset.w)}));
+fits.forEach(f=>ro.observe(f.parentElement));
+/* לוח תפוסה: מיקום ההזמנות לפי הימים */
+/* המשאית: מעצירה 3 לעצירה 4 */
+const trk=$('hxtrk'),done=stage.querySelector('.x-route.x-done');
+const A=[548,520],B=[690,506],F0=.1695;
+function truckAt(p){const x=A[0]+(B[0]-A[0])*p,y=A[1]+(B[1]-A[1])*p;trk.setAttribute('transform','translate('+x.toFixed(1)+' '+y.toFixed(1)+')');done.style.strokeDashoffset=(F0*(1-p)).toFixed(4)}
+let raf=0;function runTruck(){cancelAnimationFrame(raf);if(reduce){truckAt(1);return}truckAt(0);const t0=performance.now();(function f(t){const p=Math.min((t-t0)/(P2-P1-150),1);truckAt(p<.5?2*p*p:1-Math.pow(-2*p+2,2)/2);if(p<1)raf=requestAnimationFrame(f)})(t0)}
+/* שלבים */
+const chips=$('hxchips');
+STEPS.forEach((s,i)=>{const b=document.createElement('button');b.type='button';b.className='hx-chip';b.innerHTML='<span><i></i></span>';b.append(s.l);b.setAttribute('aria-label',s.t);b.addEventListener('click',()=>{go(i);arm()});chips.append(b)});
+const cards=[...stage.querySelectorAll('.hx-card')];
+let cur=0,timers=[],playing=!reduce,visible=true,advT=0,advAt=0,remain=DUR,held=false;
+function clear(){timers.forEach(clearTimeout);timers=[]}
+function phase(n){stage.classList.toggle('x-p1',n>=1);stage.classList.toggle('x-p2',n>=2);
+  cards.forEach(c=>c.classList.toggle('x-on',+c.dataset.i===cur&&((n===1&&c.classList.contains('x-ta'))||(n===2&&c.classList.contains('x-tb')))));
+  if(n===1&&cur===4)runTruck();if(n===2&&cur===4){cancelAnimationFrame(raf);truckAt(1)}}
+function go(i){
+  clear();cur=i;const s=STEPS[i];stage.dataset.s=i;
+  stage.querySelectorAll('.x-sc').forEach(el=>el.classList.toggle('x-on',+el.dataset.i===i));
+  $('hxt').textContent=s.t;$('hxh').textContent=s.h;
+  hero.style.setProperty('--hc1',s.c1);hero.style.setProperty('--hc2',s.c2);
+  [...chips.children].forEach((c,j)=>{c.classList.toggle('hx-dn',j<i);c.classList.toggle('hx-cu',j===i);c.classList.toggle('hx-hd',!playing);c.style.setProperty('--d',DUR+'ms');c.setAttribute('aria-current',j===i?'true':'false');const f=c.querySelector('i');if(j===i){f.style.animation='none';f.offsetWidth;f.style.animation=''}});
+  phase(0);if(i===4){truckAt(0)}
+  if(reduce){phase(2);return}
+  timers.push(setTimeout(()=>phase(1),P1),setTimeout(()=>phase(2),P2));
 }
-function setPlay(p){playing=p;$('pp').setAttribute('aria-pressed',!p);$('ppath').setAttribute('d',p?'M4 2h3v12H4zM9 2h3v12H9z':'M4 2l10 6-10 6z');$('ppt').textContent=p?'עצירה':'המשך';$('pp').setAttribute('aria-label',p?'עצירה':'המשך');if(p)go((cur+1)%STEPS.length,false);else clearTimeout(timer)}
-$('pp').addEventListener('click',()=>setPlay(!playing));
-$('ph').addEventListener('click',()=>{playing=true;$('pp').setAttribute('aria-pressed',false);$('ppath').setAttribute('d','M4 2h3v12H4zM9 2h3v12H9z');$('ppt').textContent='עצירה';go(0,true)});
-document.addEventListener('visibilitychange',()=>{if(document.hidden)clearTimeout(timer);else if(playing)go(cur,false)});
-
-if(!reduce){
- const NS='http://www.w3.org/2000/svg',st=$('steam'),mo=$('motes');
- const wisps=[...Array(5)].map((_,i)=>{const p=document.createElementNS(NS,'path');p.setAttribute('stroke-width',10+i*3);st.appendChild(p);return{p,t:i/5}});
- const motes=[...Array(26)].map(()=>{const c=document.createElementNS(NS,'circle');c.setAttribute('fill','url(#mote)');mo.appendChild(c);
-   return{c,x:220+Math.random()*560,y:120+Math.random()*420,r:2+Math.random()*3.5,vx:(Math.random()-.5)*6,vy:-2-Math.random()*5,ph:Math.random()*6}});
- let t0=performance.now(),lastT=t0;
- (function air(t){const dt=Math.min((t-lastT)/1000,.05);lastT=t;const s=(t-t0)/1000;
-  wisps.forEach((w,i)=>{const k=((s/4.2+w.t)%1),y0=545-k*190,x0=492+Math.sin(s*.9+i)*6,sw=14+k*26;
-    w.p.setAttribute('d',`M${x0} ${y0} q${-sw} -30 0 -60 q${sw} -30 0 -60`);steamK+=(steamT-steamK)*.03;w.p.setAttribute('opacity',(Math.sin(k*Math.PI)*.38*steamK).toFixed(3))});
-  motes.forEach(m=>{m.x+=m.vx*dt+Math.sin(s*.7+m.ph)*.15;m.y+=m.vy*dt;if(m.y<90){m.y=560;m.x=220+Math.random()*560}
-    const a=.25+.55*Math.abs(Math.sin(s*.6+m.ph));m.c.setAttribute('cx',m.x.toFixed(1));m.c.setAttribute('cy',m.y.toFixed(1));m.c.setAttribute('r',m.r);m.c.setAttribute('opacity',a.toFixed(2))});
-  if(!document.hidden)requestAnimationFrame(air);else{const r=()=>{if(!document.hidden){lastT=performance.now();requestAnimationFrame(air)}else setTimeout(r,500)};setTimeout(r,500)}})(t0);
-}
-
-if(reduce){go(2,true)}else go(0,false);
-if(reduce){$('ppath').setAttribute('d','M4 2l10 6-10 6z');$('ppt').textContent='הפעלה'}
+function arm(ms=DUR){clearTimeout(advT);if(playing&&visible&&!held){advAt=Date.now();remain=ms;advT=setTimeout(()=>{go((cur+1)%STEPS.length);arm()},ms)}}
+/* עצירה זמנית כשמצביעים על הדוגמה או נוגעים בה, והמשך מאותה נקודה */
+function hold(){if(!playing||held)return;held=true;clearTimeout(advT);remain=Math.max(0,remain-(Date.now()-advAt));hero.classList.add('hx-hold')}
+function release(){if(!held)return;held=false;hero.classList.remove('hx-hold');arm(Math.max(900,remain))}
+stage.addEventListener('pointerenter',e=>{if(e.pointerType==='mouse')hold()});
+stage.addEventListener('pointerleave',e=>{if(e.pointerType==='mouse')release()});
+/* החלקה בטלפון: ימינה לדוגמה הבאה, שמאלה לקודמת (כיוון קריאה מימין לשמאל) */
+let tx=0,ty=0,tt=0,rel=0;
+stage.addEventListener('touchstart',e=>{const t=e.touches[0];tx=t.clientX;ty=t.clientY;tt=Date.now();clearTimeout(rel);hold()},{passive:true});
+stage.addEventListener('touchend',e=>{const t=e.changedTouches[0],dx=t.clientX-tx,dy=t.clientY-ty;
+  if(Math.abs(dx)>45&&Math.abs(dx)>Math.abs(dy)*1.3&&Date.now()-tt<900){const n=STEPS.length;held=false;hero.classList.remove('hx-hold');go((cur+(dx>0?1:n-1))%n);arm();return}
+  rel=setTimeout(release,2500)},{passive:true});
+function setPlay(p){playing=p;$('hxpath').setAttribute('d',p?'M4 2h3v12H4zM9 2h3v12H9z':'M4 2l10 6-10 6z');$('hxpp').setAttribute('aria-label',p?'עצירה':'המשך');
+  if(p){held=false;hero.classList.remove('hx-hold');go((cur+1)%STEPS.length);arm()}else{clear();clearTimeout(advT);phase(2);[...chips.children].forEach(c=>c.classList.add('hx-hd'))}}
+$('hxpp').addEventListener('click',()=>setPlay(!playing));
+if(reduce)$('hxpath').setAttribute('d','M4 2l10 6-10 6z');
+go(0);arm();
+/* עוצרים כשהפתיחה לא על המסך או שהלשונית מוסתרת; הכותרת העליונה כהה מעל הפתיחה */
+const setDark=()=>document.body.classList.toggle('hxdark',hero.getBoundingClientRect().bottom>70);
+new IntersectionObserver(([e])=>{const v=e.isIntersecting;if(v!==visible){visible=v;if(v&&playing){go(cur);arm()}else if(!v){clear();clearTimeout(advT)}}},{threshold:0}).observe(hero);
+addEventListener('scroll',setDark,{passive:true});setDark();
+document.addEventListener('visibilitychange',()=>{const v=!document.hidden;if(v===visible)return;visible=v;if(v&&playing){go(cur);arm()}else if(!v){clear();clearTimeout(advT)}});
 }

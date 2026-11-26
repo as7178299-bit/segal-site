@@ -3,7 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>סגל אוטומציות · מערכות ניהול ואוטומציה בהתאמה אישית</title>
+<meta name="robots" content="noindex">
+<title>טיוטה · סגל אוטומציות · מערכות ניהול ואוטומציה בהתאמה אישית</title>
 <link rel="icon" href="assets/segal-app-icon.svg" type="image/svg+xml">
 <meta name="description" content="סגל אוטומציות בונה לעסקים קטנים ובינוניים מערכת אחת ללקוחות, להזמנות ולתשלומים, עם תזכורות והודעות שיוצאות לבד. אפיון, עיצוב, פיתוח ומסירה מלאה.">
 <link rel="canonical" href="https://segalautomations.cloud/">
@@ -664,6 +665,513 @@ h1 .dot{color:var(--accent)}
 @media(max-width:820px){.proc::after{background:linear-gradient(#16A394,#7C6BE0 40%,#F0A23A 70%,#3B8BF6)!important}}
 
 [tabindex="-1"]:focus{outline:none}
+/* ---------- פתיחה משולבת (טיוטה): כחול לילה, כותרת התועלת, חמישה סוגי עסקים על מסך חי ---------- */
+@property --hc1{syntax:'<color>';inherits:true;initial-value:#19B5A5}
+@property --hc2{syntax:'<color>';inherits:true;initial-value:#FF8A5B}
+.hx{--hx-ink:#fff;--hx-mut:#C7D2DF;--hx-acc:#3FD9C6;transition:--hc1 1.2s ease,--hc2 1.2s ease;background:
+  radial-gradient(55% 65% at 22% 32%,color-mix(in srgb,var(--hc1) 26%,transparent),transparent 65%),
+  radial-gradient(45% 55% at 2% 100%,color-mix(in srgb,var(--hc2) 24%,transparent),transparent 70%),
+  linear-gradient(180deg,#111925,#16202E 60%,#1A2536);color:var(--hx-ink);margin-top:-68px;padding-top:68px}
+.hx::before{content:"";position:absolute;inset:0;opacity:.13;pointer-events:none;background-image:radial-gradient(rgba(255,255,255,.9) 1px,transparent 1.2px);background-size:22px 22px;mask:radial-gradient(70% 80% at 25% 40%,#000,transparent 75%)}
+.hx-glow{position:absolute;width:620px;height:620px;left:4%;top:8%;border-radius:50%;background:radial-gradient(closest-side,color-mix(in srgb,var(--hc1) 30%,transparent),transparent);filter:blur(10px);pointer-events:none;animation:hxdrift 14s ease-in-out infinite alternate}
+@keyframes hxdrift{to{transform:translate(60px,40px) scale(1.12)}}
+.hx-in{position:relative;display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(24px,4vw,64px);align-items:center;padding-block:clamp(20px,3.5vw,48px) clamp(24px,3vw,40px)}
+.hx-kick{display:inline-flex;align-items:center;gap:8px;margin:0 0 16px;font-size:14px;font-weight:500;color:var(--hx-mut);border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.05);border-radius:999px;padding:6px 12px}
+.hx-kick i{width:8px;height:8px;border-radius:50%;background:var(--hx-acc);box-shadow:0 0 0 4px rgba(63,217,198,.22)}
+.hx h1{color:var(--hx-ink);font-size:clamp(34px,3.9vw,52px);line-height:1.08;max-width:13ch}
+.hx h1 .dot{color:var(--hx-acc)}
+.hx-lead{margin:20px 0 0;font-size:clamp(17px,1.5vw,19px);line-height:1.65;color:var(--hx-mut);max-width:44ch;text-wrap:pretty}
+.hx-acts{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.hx-pri{background:var(--hx-acc);color:#16202E}
+.hx-pri:hover{box-shadow:0 14px 30px -12px rgba(63,217,198,.7)}
+.hx-sec{border-color:rgba(255,255,255,.5);color:#fff}
+.hx-sec:hover{border-color:#fff;background:rgba(255,255,255,.06)}
+.hx-trust{list-style:none;margin:26px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px 20px;font-size:14.5px;color:var(--hx-mut)}
+.hx-trust li{display:flex;align-items:center;gap:8px}
+.hx-trust li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--hx-acc)}
+
+/* במה: מחשב וטלפון, מסך חי בגודל קבוע שמוקטן בדיוק לגודל המסגרת */
+.hx-stage{position:relative;aspect-ratio:1.42}
+.hx-lap{position:absolute;right:0;top:13%;width:83%}
+.hx-scr{position:relative;aspect-ratio:16/10;border-radius:14px 14px 4px 4px;background:#0B111B;border:7px solid #0B111B;overflow:hidden;box-shadow:0 0 0 1px rgba(255,255,255,.1),0 40px 80px -30px rgba(0,0,0,.7)}
+.hx-base{height:11px;margin:0 -5%;border-radius:0 0 12px 12px;background:linear-gradient(#C5CCD6,#8A94A3);box-shadow:0 18px 30px -14px rgba(0,0,0,.6)}
+.hx-ph{position:absolute;left:0;bottom:0;width:19.5%;aspect-ratio:.47;border-radius:24px;background:#0B111B;padding:6px;box-shadow:0 0 0 1px rgba(255,255,255,.12),0 30px 60px -20px rgba(0,0,0,.75);z-index:2}
+.hx-pscr{position:relative;width:100%;height:100%;border-radius:18px;overflow:hidden;background:#fff}
+.hx-fit{position:absolute;top:0;left:0;transform-origin:0 0;transform:scale(var(--k,1))}
+.hx-scr .hx-fit{width:800px;height:500px}.hx-pscr .hx-fit{width:280px;height:600px}
+.x-sc{position:absolute;inset:0;opacity:0;visibility:hidden;transition:opacity .6s ease,visibility 0s .6s}
+.x-sc.x-on{opacity:1;visibility:visible;transition:opacity .6s ease}
+.hx-tag{position:absolute;right:2%;top:0;font-size:12.5px;color:var(--hx-mut);background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:999px;padding:3px 11px}
+.hx-tag b{color:#fff;font-weight:500}
+
+/* מסך מחשב: מבנה משותף */
+.x-ui{font:13px/1.35 Rubik,sans-serif;color:var(--ink,#16202E);background:var(--bg,#fff)}
+.x-ui-top{height:44px;display:flex;align-items:center;gap:10px;padding:0 16px;background:var(--bar);color:#fff}
+.x-ui-top b{font-size:14px;font-weight:500}
+.x-ui-top .x-sp{flex:1}
+.x-mono{flex:none;width:26px;height:26px;border-radius:8px;display:grid;place-items:center;font-weight:700;font-size:13px;background:var(--mono,#fff);color:var(--monoc,#16202E)}
+.x-pill{font-size:11.5px;padding:3px 10px;border-radius:99px;background:rgba(255,255,255,.14)}
+.x-pill b{font-size:11.5px;font-weight:700}
+.x-av{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font-size:12px;font-weight:700;background:rgba(255,255,255,.22)}
+.x-ui-b{position:absolute;top:44px;left:0;right:0;bottom:0;padding:14px}
+.x-cd{background:#fff;border-radius:12px;padding:11px 13px;box-shadow:0 1px 0 rgba(0,0,0,.04),0 6px 16px -10px rgba(0,0,0,.25)}
+.x-ui small{display:block;color:var(--mut,#5B6676);font-size:11px}
+.x-ui .x-o2{display:none}.hx-stage.x-p2 .x-ui .x-o1{display:none}.hx-stage.x-p2 .x-ui .x-o2{display:inline}
+.x-vac .x-kpis b.x-o2{display:none}.hx-stage.x-p2 .x-vac .x-kpis b.x-o1{display:none}.hx-stage.x-p2 .x-vac .x-kpis b.x-o2{display:block}
+
+/* 0 · נופש: אתר הזמנות */
+.x-vac{--bg:#fff;--mut:#5A7377}
+.x-vnav{height:46px;display:flex;align-items:center;gap:22px;padding:0 20px;font-size:12.5px;color:#2E3B3D;background:#fff;border-bottom:1px solid #EDF1F1}
+.x-vlogo{display:flex;align-items:center;gap:7px;font-weight:700;font-size:15px;color:#0B4C53;margin-inline-end:auto}
+.x-vlogo i{width:20px;height:20px;border-radius:50% 50% 50% 0;background:linear-gradient(135deg,#19B5A5,#0E5E66);transform:rotate(-45deg)}
+.x-vcall{background:#0E5E66;color:#fff;border-radius:99px;padding:5px 12px;font-weight:500;direction:ltr}
+.x-vhero{position:absolute;top:46px;left:0;right:0;bottom:0;background:center 40%/cover no-repeat}
+.x-vhero::before{content:"";position:absolute;inset:0;background:linear-gradient(270deg,rgba(6,30,32,.72) 0%,rgba(6,30,32,.35) 45%,rgba(6,30,32,.05) 75%)}
+.x-vh-t{position:absolute;right:34px;top:54px;color:#fff;max-width:300px}
+.x-vh-t small{display:block;color:#BFEDE7;font-size:12px;margin-bottom:8px;letter-spacing:.02em}
+.x-vh-t b{display:block;font-size:34px;line-height:1.1;font-weight:700;text-shadow:0 2px 12px rgba(0,0,0,.35)}
+.x-vh-t span{display:inline-block;margin-top:14px;font-size:12px;background:rgba(255,255,255,.16);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.3);border-radius:99px;padding:5px 12px}
+.x-vbook{position:absolute;left:26px;top:28px;width:330px;background:#fff;border-radius:18px;padding:14px;box-shadow:0 30px 60px -20px rgba(0,0,0,.55)}
+.x-vb-r{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid #E2EAEA;border-radius:12px;overflow:hidden}
+.x-vb-r span{padding:7px 10px;font-size:12.5px;font-weight:500;color:#16302F}
+.x-vb-r span+span{border-inline-start:1px solid #E2EAEA}
+.x-vb-r small,.x-vb-l{display:block;font-size:10.5px;color:#6A8486}
+.x-vb-l{margin:11px 0 6px}
+.x-vunits{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}
+.x-vu{position:relative;border-radius:11px;overflow:hidden;border:2px solid transparent;background:#F2F6F6}
+.x-vu::before{content:"";display:block;height:64px;background:var(--p) center/cover}
+.x-vu b{display:block;font-size:11.5px;padding:5px 7px 0;color:#16302F}
+.x-vu small{display:block;font-size:10px;color:#6A8486;padding:0 7px 6px}
+.x-vu.x-sel{border-color:#19B5A5;box-shadow:0 8px 16px -10px #0E7C8C}
+.x-vu.x-sel::after{content:"✓";position:absolute;top:6px;left:6px;width:18px;height:18px;border-radius:50%;background:#19B5A5;color:#fff;font-size:11px;display:grid;place-items:center}
+.x-vb-tot{display:flex;align-items:baseline;justify-content:space-between;margin:12px 2px 10px;font-size:12px;color:#4A6264}
+.x-vb-tot b{font-size:20px;color:#0B4C53}
+.x-vb-btn{display:block;text-align:center;padding:11px;border-radius:12px;font-weight:700;font-size:14px;color:#fff;background:linear-gradient(135deg,#FF8A5B,#F2603A);box-shadow:0 10px 20px -10px #F2603A;transition:transform .2s}
+.hx-stage.x-p1 .x-vac .x-vb-btn.x-a{transform:scale(.96);filter:brightness(.95)}
+.x-vb-btn.x-b{display:none;background:linear-gradient(135deg,#2BC48A,#0E8F6A);box-shadow:0 10px 20px -10px #0E8F6A}
+.hx-stage.x-p2 .x-vac .x-vb-btn.x-a{display:none}.hx-stage.x-p2 .x-vac .x-vb-btn.x-b{display:block;animation:hxpop .5s}
+.x-bimg{display:block;height:92px;margin:-11px -12px 9px;border-radius:16px 16px 0 0;background:var(--p) center/cover}
+.x-bimg.x-tall{height:150px;background-position:center 30%}
+
+/* 1 · קייטרינג ואולם שמחות: בחירת תפריט עם תמונות */
+.x-cat{--bg:#FBF5EF;--bar:linear-gradient(90deg,#4A0F24,#7A1E3A);--mono:#E3B35A;--monoc:#4A0F24;--mut:#7A6560}
+.x-menu-g{display:grid;grid-template-columns:1.6fr 1fr;gap:12px}
+.x-menu{background:#fff;border-radius:14px;padding:10px 12px;box-shadow:0 6px 16px -10px rgba(122,30,58,.35)}
+.x-mtabs{display:flex;gap:6px;margin-bottom:10px}
+.x-mtabs span{font-size:11.5px;padding:4px 11px;border-radius:99px;background:#FBF1E7;color:#7A6560}
+.x-mtabs .x-cur{background:#7A1E3A;color:#fff}
+.x-dishes{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}
+.x-dish{position:relative;border-radius:12px;overflow:hidden;background:#FBF5EF;border:2px solid transparent;transition:border-color .35s,box-shadow .35s}
+.x-dish::before{content:"";display:block;height:92px;background:var(--p) center/cover}
+.x-dish em{position:absolute;top:7px;right:7px;font-style:normal;font-size:10px;font-weight:500;color:#fff;background:rgba(40,10,20,.55);backdrop-filter:blur(4px);border-radius:99px;padding:1px 8px}
+.x-dish b{display:block;font-size:12px;font-weight:500;color:#3A2A26;padding:7px 9px 9px}
+.x-dish.x-sel,.hx-stage.x-p1 .x-cat .x-dish.x-pk,.hx-stage.x-p2 .x-cat .x-dish.x-pk{border-color:#7A1E3A;box-shadow:0 10px 20px -12px rgba(122,30,58,.8);background:#fff}
+.x-dish.x-sel::after,.hx-stage.x-p1 .x-cat .x-dish.x-pk::after,.hx-stage.x-p2 .x-cat .x-dish.x-pk::after{content:"✓";position:absolute;top:6px;left:6px;width:20px;height:20px;border-radius:50%;background:#7A1E3A;color:#fff;font-size:12px;display:grid;place-items:center;box-shadow:0 0 0 2px #fff}
+.x-msum{display:grid;gap:10px;align-content:start}
+.x-mtot b{display:block;font-size:17px;color:#4A0F24;margin-bottom:4px}
+.x-mtot b.x-big{font-size:24px}
+.x-st{display:inline-block;margin-top:4px;font-size:11px;font-weight:700;padding:3px 10px;border-radius:99px}
+.x-st.x-w{background:#FDF0D8;color:#9A6512}.x-st.x-ok{display:none;background:#DDF5E8;color:#127A47}
+.hx-stage.x-p2 .x-cat .x-st.x-w{display:none}.hx-stage.x-p2 .x-cat .x-st.x-ok{display:inline-block}
+.x-q{display:grid;grid-template-columns:70px 1fr 30px;align-items:center;gap:7px;font-size:11.5px;margin-top:7px;color:#4A3A36}
+.x-q i{height:8px;border-radius:4px;background:linear-gradient(270deg,#E3B35A,#C2405F) right/0 100% no-repeat,#F4E9E0;transition:background-size .9s cubic-bezier(.2,.8,.2,1)}
+.hx-stage.x-p2 .x-cat .x-q i{background-size:var(--w) 100%,auto}
+.x-q b{text-align:left;font-weight:700;color:#4A0F24;opacity:0;transition:opacity .4s .5s}
+.hx-stage.x-p2 .x-cat .x-q b{opacity:1}
+
+/* 2 · מוסך */
+.x-gar{--bg:#14171D;--ink:#E8ECF1;--bar:#0D0F13;--mono:#FF7A1A;--monoc:#fff;--mut:#8D96A5}
+.x-gar-w{display:flex;flex-direction:column;gap:10px}
+.x-gban{position:relative;flex:none;height:74px;border-radius:12px;overflow:hidden;display:grid;grid-template-columns:repeat(3,1fr);align-items:center;padding:0 16px;background:linear-gradient(270deg,rgba(13,15,19,.92),rgba(13,15,19,.55)),var(--p) center/cover}
+.x-gban span small{color:#B8C0CC}
+.x-gban b{display:block;font-size:20px;color:#fff}
+.x-gban .x-o2{display:none}.hx-stage.x-p2 .x-gban b.x-o1{display:none}.hx-stage.x-p2 .x-gban b.x-o2{display:block;color:#3DDC84}
+.x-gar-k{flex:1;min-height:0;display:grid;grid-template-columns:repeat(4,1fr);gap:10px;overflow:hidden}
+.x-cimg{display:block;height:54px;margin:-8px -9px 7px;border-radius:9px 9px 0 0;background:var(--p) center/cover}
+.x-gar .x-col{background:#1B1F26;border-radius:12px;padding:9px;display:flex;flex-direction:column;gap:7px}
+.x-gar .x-col p{margin:0 0 2px;display:flex;align-items:center;gap:6px;font-size:12px;font-weight:500}
+.x-gar .x-col p i{width:8px;height:8px;border-radius:50%;background:var(--c)}
+.x-gar .x-col p em{margin-inline-start:auto;font-style:normal;font-size:11px;color:#8D96A5;background:#262B34;border-radius:99px;padding:0 7px}
+.x-gar .x-c2{display:none}.hx-stage.x-p2 .x-gar .x-c1{display:none}.hx-stage.x-p2 .x-gar .x-c2{display:inline}
+.x-car{position:relative;background:#232831;border-radius:10px;padding:8px 9px 9px;border:1px solid #2C323C}
+.x-car b{display:block;font-size:12.5px;margin-top:5px}
+.x-plate{display:inline-block;font:700 10.5px/1 Rubik,sans-serif;letter-spacing:.06em;color:#111;background:#F7C948;border-radius:3px;padding:3px 6px 3px 12px;position:relative;direction:ltr}
+.x-plate::before{content:"";position:absolute;left:0;top:0;bottom:0;width:6px;background:#2856C9;border-radius:3px 0 0 3px}
+.x-mk,.x-okm{position:absolute;top:7px;left:8px;width:20px;height:20px;border-radius:50%;display:grid;place-items:center;font-size:10px;font-weight:700;background:#3A4250;color:#E8ECF1}
+.x-okm{background:#1F6F45;color:#BFF5D7}
+.x-car.x-hot{border-color:#FF7A1A;box-shadow:0 0 0 3px rgba(255,122,26,.18),0 10px 20px -10px rgba(255,122,26,.6)}
+.x-prg{display:block;height:4px;border-radius:2px;background:#333A45;margin-top:7px;overflow:hidden}
+.x-prg i{display:block;height:100%;width:45%;background:linear-gradient(270deg,#FFB067,#FF7A1A);transition:width 1.8s ease}
+.hx-stage.x-p1 .x-gar .x-prg i,.hx-stage.x-p2 .x-gar .x-prg i{width:100%}
+.x-car.x-a2{display:none}
+.hx-stage.x-p2 .x-gar .x-car.x-a1{display:none}
+.hx-stage.x-p2 .x-gar .x-car.x-a2{display:block;border-color:#3DDC84;box-shadow:0 0 0 3px rgba(61,220,132,.2),0 10px 20px -10px rgba(61,220,132,.6);animation:hxpop .5s cubic-bezier(.2,.8,.2,1)}
+@keyframes hxpop{from{transform:translateX(-30px) scale(.9);opacity:0}}
+
+/* 3 · דלתות ונגרות */
+.x-door{--bg:#F6EFE6;--bar:linear-gradient(90deg,#2E1F14,#4A3121);--mono:#C9E0C6;--monoc:#2E4A2B;--mut:#7D6B5C}
+.x-door-g{display:grid;grid-template-columns:.85fr 1.15fr;gap:14px}
+.x-door-v{position:relative;border-radius:16px;background:var(--p) center 35%/cover;box-shadow:0 10px 24px -12px rgba(46,31,20,.7)}
+.x-dm{position:absolute;font-size:11px;font-weight:500;color:#2E1F14;background:rgba(255,255,255,.92);border-radius:6px;padding:2px 7px}
+.x-dm.x-h{top:50%;right:8px;transform:translateY(-50%) rotate(90deg)}
+.x-dm.x-w{bottom:12px;left:50%;transform:translateX(-50%)}
+.x-dtag{position:absolute;top:10px;right:10px;font-size:11px;font-weight:500;color:#fff;background:rgba(46,31,20,.65);backdrop-filter:blur(4px);border-radius:99px;padding:2px 10px}
+.x-door-d{display:grid;gap:10px;align-content:start}
+.x-models{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.x-md{position:relative;border-radius:12px;overflow:hidden;background:#fff;border:2px solid transparent}
+.x-md::before{content:"";display:block;height:78px;background:var(--p) center 30%/cover}
+.x-md.x-plain::before{background:linear-gradient(90deg,#3A3A3A 0 46%,#2A2A2A 46% 54%,#3A3A3A 54%),#333;background-size:56% 80%;background-position:center;background-repeat:no-repeat;background-color:#E9E2D8}
+.x-md b{display:block;font-size:11.5px;font-weight:500;color:#2E1F14;padding:5px 8px 6px}
+.x-md.x-sel{border-color:#5E7F5B;box-shadow:0 8px 16px -10px #5E7F5B}
+.x-spec{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.x-spec span{background:#fff;border-radius:12px;padding:8px 11px;font-size:12px;color:#2E1F14;box-shadow:0 6px 16px -12px rgba(74,49,33,.5)}
+.x-stp{display:flex;align-items:center;gap:6px;background:#fff;border-radius:12px;padding:12px;box-shadow:0 6px 16px -12px rgba(74,49,33,.5)}
+.x-stp span{display:flex;flex-direction:column;align-items:center;gap:6px;font-size:11.5px;color:#7D6B5C;flex:none}
+.x-stp span::before{content:"";width:22px;height:22px;border-radius:50%;border:2px solid #D8CBBB;background:#fff;box-sizing:border-box}
+.x-stp span.x-ok::before,.hx-stage.x-p2 .x-door .x-stp .x-paint::before{border-color:#5E7F5B;background:#5E7F5B url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 12.5l4 4 8-9' fill='none' stroke='%23fff' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/14px no-repeat}
+.x-stp .x-paint::before{border-color:#E0A043;box-shadow:0 0 0 5px rgba(224,160,67,.2)}
+.x-stp .x-paint{color:#2E1F14;font-weight:500}
+.hx-stage.x-p2 .x-door .x-stp .x-paint::before{box-shadow:none}
+.hx-stage.x-p2 .x-door .x-stp .x-inst::before{border-color:#E0A043;box-shadow:0 0 0 5px rgba(224,160,67,.2)}
+.hx-stage.x-p2 .x-door .x-stp .x-inst{color:#2E1F14;font-weight:500}
+.x-stp i{flex:1;height:3px;border-radius:2px;background:#5E7F5B;margin-bottom:20px}
+.x-stp i.x-l3{background:linear-gradient(#5E7F5B,#5E7F5B) right/0% 100% no-repeat,#E5DACC;transition:background-size .8s ease}
+.hx-stage.x-p2 .x-door .x-stp i.x-l3{background-size:100% 100%}
+.x-slots>div{display:flex;gap:7px;margin-top:8px}
+.x-slots span{flex:1;text-align:center;font-size:12px;padding:8px 0;border-radius:9px;background:#F6EFE6;color:#4A3121;transition:background .4s,color .4s}
+.hx-stage.x-p2 .x-door .x-slots .x-pick{background:#5E7F5B;color:#fff;box-shadow:0 8px 16px -8px #5E7F5B}
+
+/* 4 · הובלות ושליחויות */
+.x-mov{--bg:#0B1437;--ink:#E7ECFF;--bar:#070E2A;--mono:#A3E635;--monoc:#0B1437;--mut:#8C9AD0}
+.x-mov-g{display:grid;grid-template-columns:1.35fr 1fr;gap:12px}
+.x-map{position:relative;border-radius:14px;overflow:hidden;background:#EDEFF1 var(--p) center/cover;box-shadow:inset 0 0 0 1px rgba(255,255,255,.08)}
+.x-map svg{width:100%;height:100%;display:block}
+.x-route{fill:none;stroke:#7C8DB5;stroke-width:9;stroke-dasharray:3 14;stroke-linecap:round;stroke-linejoin:round}
+.x-route.x-done{stroke:#2D5BFF;stroke-width:10;stroke-dasharray:1;stroke-dashoffset:.1695;filter:drop-shadow(0 2px 3px rgba(20,40,120,.35))}
+.x-stops circle{fill:#1E3A8A;stroke:#fff;stroke-width:4;filter:drop-shadow(0 2px 3px rgba(0,0,0,.3))}
+.x-stops .x-nx{fill:#fff;stroke:#2D5BFF;animation:hxping 1.4s ease-out infinite}
+.x-stops .x-lt{fill:#8A97B8}
+.hx-stage.x-p2 .x-mov .x-stops .x-nx{fill:#2BA36B;stroke:#fff;animation:none}
+@keyframes hxping{50%{stroke:#fff;stroke-width:8;stroke-opacity:.35}}
+#hxtrk{filter:drop-shadow(0 3px 5px rgba(0,0,0,.35))}
+.x-mov-s{display:grid;gap:7px;align-content:start}
+.x-veh{position:relative;height:78px;border-radius:12px;overflow:hidden;padding:9px 11px;display:flex;flex-direction:column;justify-content:flex-end;background:linear-gradient(0deg,rgba(7,14,42,.92),rgba(7,14,42,.1) 70%),var(--p) center 60%/cover;border:1px solid #1D2B6B}
+.x-veh b{font-size:12.5px;color:#fff}.x-veh small{color:#A9B6E6}
+.x-stop{background:#121E52;border-radius:11px;padding:6px 11px;border:1px solid #1D2B6B;position:relative;padding-inline-start:34px}
+.x-stop::before{content:"";position:absolute;right:11px;top:50%;width:14px;height:14px;margin-top:-7px;border-radius:50%;border:2px solid #3A4C8C;box-sizing:border-box}
+.x-stop.x-dn::before,.hx-stage.x-p2 .x-mov .x-stop.x-cur::before{border-color:#A3E635;background:#A3E635}
+.x-stop b{display:block;font-size:12.5px}
+.x-stop.x-cur{border-color:#A3E635;box-shadow:0 0 0 3px rgba(163,230,53,.15)}
+.x-stop .x-b{display:none}.hx-stage.x-p2 .x-mov .x-stop .x-a{display:none}.hx-stage.x-p2 .x-mov .x-stop .x-b{display:block;color:#A3E635}
+
+/* מסכי טלפון */
+.x-pui{font:13px/1.4 Rubik,sans-serif;color:#16202E;background:#F4F6F9;padding:30px 14px 14px;display:flex;flex-direction:column;gap:12px}
+.x-p-chat{display:flex;flex-direction:column;gap:12px;margin:-30px -14px 0;min-height:600px;background:#ECE5DD}
+.x-p-chat.x-light{background:#F3EEE7}.x-p-chat.x-sea{background:#E3F3F2}
+.x-p-ch{display:flex;align-items:center;gap:9px;padding:36px 14px 12px;background:#1F2A37;color:#fff}
+.x-pui.x-vac .x-p-ch{background:#0E5E66}.x-pui.x-door .x-p-ch{background:#3E2A1C}.x-pui.x-gar .x-p-ch{background:#14171D}
+.x-pui.x-vac .x-mono{background:#FFD7C2;color:#B84A1C}.x-pui.x-gar .x-mono{background:#FF7A1A;color:#fff}.x-pui.x-door .x-mono{background:#C9E0C6;color:#2E4A2B}
+.x-typing{align-self:flex-end;margin:0 14px;display:flex;gap:4px;background:#fff;border-radius:14px 14px 14px 4px;padding:10px 12px;opacity:0;transition:opacity .3s}
+.x-typing i{width:6px;height:6px;border-radius:50%;background:#9AA3AE;animation:hxdot 1s infinite}
+.x-typing i:nth-child(2){animation-delay:.15s}.x-typing i:nth-child(3){animation-delay:.3s}
+@keyframes hxdot{50%{transform:translateY(-3px);opacity:.5}}
+.hx-stage.x-p1 .x-typing{opacity:1}
+.hx-stage.x-p2 .x-typing{display:none}
+.x-bub{align-self:flex-end;margin:0 14px;max-width:236px;background:#fff;border-radius:16px 16px 16px 4px;padding:11px 12px 8px;box-shadow:0 2px 4px rgba(0,0,0,.08);opacity:0;transform:translateY(14px) scale(.96);transform-origin:bottom left;transition:opacity .4s,transform .5s cubic-bezier(.2,.8,.2,1)}
+.hx-stage.x-p2 .x-bub{opacity:1;transform:none}
+.x-bub p{margin:0 0 6px;font-size:13px}
+.x-bb{display:block;text-align:center;font-size:12.5px;font-weight:500;color:#0E7C8C;border-top:1px solid #E6EAEE;padding:7px 0 3px}
+.x-pui.x-gar .x-bb{color:#C2500B}.x-pui.x-door .x-bb{color:#5E7F5B}
+.x-bub small{display:block;text-align:left;font-size:10.5px;color:#8C96A2;margin-top:2px}
+.x-p-h small{display:block;color:#7A6560;font-size:12px}
+.x-p-h b{font-size:19px;color:#4A0F24}
+.x-pui.x-cat{background:linear-gradient(180deg,#FBEFE6,#FBF5EF)}
+.x-p-ring{position:relative;width:150px;height:150px;margin:4px auto}
+.x-p-ring svg{width:100%;height:100%;transform:rotate(-90deg)}
+.x-p-ring circle{fill:none;stroke-width:10;stroke:#F1E1D6}
+.x-p-ring .x-pr{stroke:#C2405F;stroke-linecap:round;stroke-dasharray:314;stroke-dashoffset:94}
+.x-p-ring span{position:absolute;inset:0;display:grid;place-content:center;text-align:center;font-size:12px;color:#7A6560}
+.x-p-ring span b{font-size:38px;color:#4A0F24;line-height:1}
+.x-p-ck{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.x-p-ck li{background:#fff;border-radius:12px;padding:10px 12px;font-size:13px;display:flex;align-items:center;gap:8px}
+.x-p-ck li::before{content:"";width:16px;height:16px;border-radius:50%;border:2px solid #E3B35A;box-sizing:border-box;flex:none}
+.x-p-ck li.x-ok::before,.hx-stage.x-p2 .x-pui.x-cat .x-p-ck li.x-py::before{border-color:#2BA36B;background:#2BA36B}
+.x-p-ck b{margin-inline-start:auto}
+.x-p-btn{display:block;text-align:center;padding:12px;border-radius:12px;font-weight:700;font-size:14px;background:#7A1E3A;color:#fff}
+.x-p-btn.x-b{display:none;background:#2BA36B}
+.hx-stage.x-p2 .x-p-btn.x-a{display:none}.hx-stage.x-p2 .x-p-btn.x-b{display:block;animation:hxpop .5s}
+.x-pm{background:#fff;border-radius:14px;padding:6px;display:grid;gap:4px;box-shadow:0 4px 10px -6px rgba(122,30,58,.3)}
+.x-pd{position:relative;display:grid;grid-template-columns:46px 1fr;grid-template-rows:auto auto;column-gap:10px;align-items:center;padding:6px;border-radius:10px}
+.x-pd::before{content:"";grid-row:1/3;width:46px;height:46px;border-radius:10px;background:var(--p) center/cover}
+.x-pd b{font-size:13px;font-weight:500;color:#3A2A26;align-self:end}
+.x-pd small{font-size:11px;color:#7A6560;align-self:start}
+.x-pd::after{content:"";position:absolute;left:8px;top:50%;margin-top:-10px;width:20px;height:20px;border-radius:50%;border:2px solid #D9C4B8;box-sizing:border-box;transition:background .3s,border-color .3s}
+.x-pd.x-on::after,.hx-stage.x-p1 .x-pui.x-cat .x-pd.x-pk::after,.hx-stage.x-p2 .x-pui.x-cat .x-pd.x-pk::after{border-color:#7A1E3A;background:#7A1E3A url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 12.5l4 4 8-9' fill='none' stroke='%23fff' stroke-width='2.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/12px no-repeat}
+.x-pui.x-mov{background:#0B1437;color:#E7ECFF}
+.x-p-h.x-dk small{color:#8C9AD0}.x-p-h.x-dk b{color:#fff}
+.x-dph{position:relative;display:block;height:120px;border-radius:14px;background:var(--p) center/cover}
+.x-dph em{position:absolute;bottom:8px;right:8px;font-style:normal;font-size:11px;color:#fff;background:rgba(7,14,42,.7);border-radius:99px;padding:2px 9px}
+.x-sig{position:relative;height:130px;border-radius:14px;background:#fff;border:1px dashed #9BA8D6;display:grid;place-items:center}
+.x-sig svg{width:190px}
+.x-sig path{fill:none;stroke:#1B2A6B;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 1.4s ease}
+.hx-stage.x-p1 .x-pui.x-mov .x-sig path,.hx-stage.x-p2 .x-pui.x-mov .x-sig path{stroke-dashoffset:0}
+.x-sig span{position:absolute;bottom:10px;right:14px;font-size:11px;color:#6B78A8}
+.x-p-btn.x-dk{background:#A3E635;color:#0B1437}.x-p-btn.x-b.x-dk{background:#2BA36B;color:#fff}
+
+/* כרטיסי אוטומציה צפים */
+.hx-card{position:absolute;z-index:3;top:0;left:0;display:flex;align-items:center;gap:10px;padding:11px 13px;white-space:nowrap;background:#fff;color:#16202E;border-radius:14px;box-shadow:0 24px 50px -18px rgba(0,0,0,.6);font-size:13px;opacity:0;transform:translateY(12px) scale(.97);transition:opacity .45s ease,transform .55s cubic-bezier(.2,.8,.2,1);pointer-events:none}
+.hx-card.x-on{opacity:1;transform:none}
+.hx-card small{display:block;color:#46566B;font-size:12px}
+.hx-card b{font-weight:700}
+.hx-card em{margin-inline-start:8px;font-style:normal;font-weight:700;color:#0E8F6A;white-space:nowrap}
+.hx-ic{flex:none;width:34px;height:34px;border-radius:10px;display:grid;place-items:center;background:linear-gradient(135deg,var(--a,#16A394),var(--b,#0E5E6F))}
+.hx-ic.x-ok{background:linear-gradient(135deg,#2BC48A,#0E8F6A)}
+.hx-ic svg{width:17px;height:17px;fill:none;stroke:#fff;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+
+/* כיתוב ושלבים */
+.hx-cap{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-top:22px}
+.hx-ctxt{min-height:66px}
+.hx-ctxt small{display:block;color:var(--hx-acc);font-weight:500;font-size:13px}
+.hx-ctxt b{display:block;font-size:17px}
+.hx-ctxt span{display:block;color:var(--hx-mut);font-size:14.5px}
+.hx-ctl{display:flex;align-items:center;gap:10px;flex:none}
+.hx-chips{display:flex;gap:6px}
+.hx-chip{position:relative;min-width:50px;height:30px;border:0;background:none;padding:0;cursor:pointer;color:var(--hx-mut);font:500 11.5px Rubik,sans-serif}
+.hx-chip span{display:block;height:3px;border-radius:2px;background:rgba(255,255,255,.2);overflow:hidden;margin-bottom:5px}
+.hx-chip span i{display:block;height:100%;width:0;background:#fff}
+.hx-chip.hx-dn span i{width:100%}
+.hx-chip.hx-cu{color:#fff}
+.hx-chip.hx-cu span i{animation:hxfill var(--d,5s) linear forwards}
+.hx-chip.hx-cu.hx-hd span i{animation:none;width:100%}
+@keyframes hxfill{to{width:100%}}
+.hx-pp{width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.06);color:#fff;display:grid;place-items:center;cursor:pointer}
+.hx-pp:hover{background:rgba(255,255,255,.14)}
+.hx-cue{position:relative;display:flex;flex-direction:column;align-items:center;gap:2px;width:max-content;margin:0 auto;padding:0 0 18px;color:#C7D2DF;text-decoration:none;font-size:13px;font-weight:500}
+.hx-cue:hover{color:#fff}
+.hx-cue svg{animation:hxbob 1.8s ease-in-out 3}
+@keyframes hxbob{50%{transform:translateY(4px)}}
+.hx+.work{padding-top:clamp(40px,6vw,72px)}
+
+/* כותרת עליונה מעל הפתיחה הכהה */
+body.hxdark .top{background:transparent;box-shadow:none}
+body.hxdark .top.stuck{background:rgba(18,26,39,.82)}
+body.hxdark .top .logo.lt{display:none}body.hxdark .top .logo.dk{display:block}
+body.hxdark .nav a{color:#C7D2DF}body.hxdark .nav a:hover{color:#fff;background:rgba(255,255,255,.08)}
+body.hxdark .top .btn.pri{background:#3FD9C6;color:#16202E}
+
+@media(max-width:900px){
+  .hx-in{grid-template-columns:1fr;padding-top:20px}
+  .hx-vis{margin-top:8px}
+  .hx-card{font-size:12px;padding:9px 10px}
+  .hx-cap{flex-direction:column;align-items:stretch}
+  .hx-ctl{justify-content:space-between}
+  .hx-glow{width:420px;height:420px;top:40%}
+}
+@media(max-width:520px){
+  .hx-acts .btn{width:100%}
+  .hx-ic{width:28px;height:28px}
+  .hx-card small{font-size:11px}
+  .hx-card em{display:none}
+  .hx-tag{display:none}
+  .hx-chip{min-width:0;flex:1}
+  .hx-chips{flex:1}
+}
+@media(prefers-reduced-motion:reduce){.hx{transition:none}.hx-cue svg,.hx-glow,.x-stops .x-nx,.x-typing i{animation:none}.hx-card,.x-sc,.x-bub,.x-pb i,.x-prg i,.x-bk.x-new,.x-sig path{transition:none}.hx-chip.hx-cu span i{animation:none;width:100%}}
+
+/* מפה: קרדיט */
+.x-osm{position:absolute;left:6px;bottom:5px;font-size:9.5px;color:#46566B;background:rgba(255,255,255,.85);border-radius:4px;padding:1px 5px}
+/* דלתות: הדמיות דגמים */
+.x-door-v{background:linear-gradient(180deg,#EDE8E1 0 78%,#CFC6BA 78%);display:grid;place-items:center}
+.x-wall{display:block;height:86%;aspect-ratio:220/400;margin-top:-4%;filter:drop-shadow(0 14px 18px rgba(40,30,20,.35))}
+.x-wall img{width:100%;height:100%;display:block}
+.x-md::before{display:none}
+.x-md img{display:block;height:74px;width:auto;margin:8px auto 0}
+.x-md{background:linear-gradient(180deg,#F4F1EC,#fff);text-align:center}
+.x-md small{display:block;font-size:10.5px;color:#7A6A5C;padding:0 0 6px;margin-top:-4px}
+/* טלפון: תוכן קשור מהשנייה הראשונה */
+.x-pui{min-height:600px;box-sizing:border-box;overflow:hidden}
+.x-push{position:absolute;top:8px;left:8px;right:8px;display:flex;gap:9px;align-items:center;background:rgba(255,255,255,.96);color:#16202E;border-radius:16px;padding:9px 11px;box-shadow:0 12px 28px -10px rgba(0,0,0,.45);transform:translateY(-130%);opacity:0;transition:transform .55s cubic-bezier(.2,.8,.2,1),opacity .3s;z-index:3}
+.x-push .x-mono{flex:none;width:30px;height:30px;border-radius:9px;display:grid;place-items:center;font-weight:700;font-size:14px}
+.x-push b{display:block;font-size:12px}.x-push small{display:block;font-size:11px;color:#46566B}
+.hx-stage.x-p2 .x-push{transform:none;opacity:1}
+.x-pui.x-vac{padding:0;background:#fff;gap:0}
+.x-pv-img{position:relative;height:250px;background:var(--p) center/cover}
+.x-vlogo{position:absolute;top:30px;right:12px;display:flex;gap:6px;align-items:center;font-weight:700;font-size:12px;color:#fff;background:rgba(14,94,102,.75);border-radius:99px;padding:4px 10px}
+.x-vlogo i{width:8px;height:8px;border-radius:50%;background:#FF8A5B}
+.x-pv-b{display:grid;gap:9px;padding:14px;margin-top:-18px;background:#fff;border-radius:18px 18px 0 0;position:relative}
+.x-pv-b>b{font-size:16px}.x-pv-b>small{color:#46566B;font-size:11.5px;margin-top:-6px}
+.x-pv-r{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.x-pv-r span{border:1px solid #E2E7ED;border-radius:12px;padding:7px 10px;font-weight:500}
+.x-pv-r small{display:block;font-size:10.5px;color:#46566B;font-weight:400}
+.x-pui.x-vac .x-vb-tot{display:flex;justify-content:space-between;align-items:baseline;font-size:12.5px}
+.x-pui.x-vac .x-vb-tot b{font-size:17px}
+.x-p-h.x-dk{color:#fff}
+.x-pui.x-gar{background:#F3F4F6}
+.x-pui.x-gar .x-p-h{background:#14171D;margin:-30px -14px 0;padding:34px 14px 14px;border-radius:0 0 18px 18px}
+.x-pui.x-gar .x-p-h small,.x-pui.x-mov .x-p-h small{color:#AEB6C2}
+.x-p-h b.x-o2,.x-peta b.x-o2,.x-pst i.x-o2{display:none}
+.hx-stage.x-p2 .x-p-h b.x-o1,.hx-stage.x-p2 .x-peta b.x-o1,.hx-stage.x-p2 .x-pst i.x-o1{display:none}
+.hx-stage.x-p2 .x-p-h b.x-o2,.hx-stage.x-p2 .x-peta b.x-o2{display:block}
+.hx-stage.x-p2 .x-pst i.x-o2{display:inline}
+.x-pst i{font-style:normal}
+.x-pg-img{position:relative;display:block;height:118px;border-radius:14px;background:var(--p) center/cover}
+.x-pg-img em,.x-pmap em{position:absolute;bottom:7px;right:7px;font-style:normal;font-size:10.5px;color:#fff;background:rgba(0,0,0,.6);border-radius:99px;padding:2px 9px}
+.x-pst{list-style:none;margin:0;padding:12px 14px;background:#fff;border-radius:14px;display:grid;gap:9px;font-size:12.5px;box-shadow:0 4px 10px -8px rgba(0,0,0,.3)}
+.x-pst li{position:relative;padding-inline-start:24px;color:#46566B}
+.x-pst li::before{content:"";position:absolute;right:0;top:50%;width:14px;height:14px;margin-top:-7px;border-radius:50%;border:2px solid #C7D2DF;box-sizing:border-box;transition:background .3s,border-color .3s}
+.x-pst li.x-ok{color:#16202E}.x-pst li.x-ok::before{border-color:#2BA36B;background:#2BA36B}
+.x-pst li.x-cur{color:#16202E;font-weight:500}.x-pst li.x-cur::before{border-color:#F59E0B;background:#FEF3C7}
+.hx-stage.x-p2 .x-pst li.x-cur::before{border-color:#2BA36B;background:#2BA36B}
+.hx-stage.x-p2 .x-gar .x-pst li.x-nxt{color:#16202E;font-weight:500}.hx-stage.x-p2 .x-gar .x-pst li.x-nxt::before{border-color:#2BA36B;background:#2BA36B}
+.hx-stage.x-p2 .x-door .x-pst li.x-nxt{color:#16202E;font-weight:500}.hx-stage.x-p2 .x-door .x-pst li.x-nxt::before{border-color:#F59E0B;background:#FEF3C7}
+.x-pg-pay{display:flex;justify-content:space-between;align-items:baseline;padding:0 4px;font-size:12.5px}.x-pg-pay b{font-size:17px}
+.x-p-btn.x-gbtn{background:#D7DCE2;color:#46566B}.x-p-btn.x-gbtn2{background:#FF7A1A}
+.x-pui.x-door{background:#F6F2EC}
+.x-pdoor{display:flex;gap:12px;align-items:center;background:#fff;border-radius:14px;padding:10px 12px;box-shadow:0 4px 10px -8px rgba(60,40,20,.4)}
+.x-pdoor img{height:96px;width:auto}
+.x-pdoor b{display:block;font-size:15px}.x-pdoor small{color:#7A6A5C;font-size:11.5px}
+.x-p-btn.x-dbtn{background:#3E2A1C}.x-p-btn.x-dbtn2{background:#2BA36B}
+.x-pmap{position:relative;display:block;height:210px;border-radius:14px;background:var(--p) 72% 66%/260% auto;box-shadow:inset 0 0 0 1px rgba(255,255,255,.1)}
+.x-pin{position:absolute;left:30%;top:36%;width:18px;height:18px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:#E5484D;box-shadow:0 3px 6px rgba(0,0,0,.35)}
+.x-pin::after{content:"";position:absolute;inset:5px;border-radius:50%;background:#fff}
+.x-ptruck{position:absolute;width:24px;height:24px;border-radius:8px;background:#1E3A8A;border:3px solid #fff;box-shadow:0 3px 6px rgba(0,0,0,.35);left:72%;top:58%;transition:left 2s cubic-bezier(.4,0,.2,1),top 2s cubic-bezier(.4,0,.2,1)}
+.hx-stage.x-p1 .x-pmap .x-ptruck{left:52%;top:44%}
+.hx-stage.x-p2 .x-pmap .x-ptruck{left:31%;top:38%}
+.x-peta{display:flex;justify-content:space-between;gap:10px;background:#121E52;border:1px solid #1D2B6B;border-radius:14px;padding:10px 12px}
+.x-peta small{display:block;font-size:10.5px;color:#A9B6E6}.x-peta b{font-size:16px;color:#fff}
+.x-pdrv{text-align:left}.x-pdrv b{font-size:13px}
+.hx-stage.x-p2 .x-peta b.x-o2{color:#A3E635}
+.x-pui.x-mov .x-dph{height:112px;opacity:.35;filter:grayscale(.6);transition:opacity .4s,filter .4s}
+.hx-stage.x-p2 .x-pui.x-mov .x-dph{opacity:1;filter:none}
+@media(prefers-reduced-motion:reduce){.x-push,.x-ptruck,.x-dph{transition:none}}
+
+/* מוסך: תמונת דגם קטנה בכל כרטיס */
+.x-car .x-cth{float:left;width:46px;height:30px;border-radius:7px;margin:0 0 0 6px;background:var(--p) center/cover;box-shadow:inset 0 0 0 1px rgba(255,255,255,.12)}
+.x-car .x-cth.x-sil{background:linear-gradient(180deg,#2A3140,#1C222D);position:relative}
+.x-car .x-cth.x-sil::after{content:"";position:absolute;inset:5px 4px 3px;background:var(--cc);-webkit-mask:url(img/hx/car-sil.svg) center/contain no-repeat;mask:url(img/hx/car-sil.svg) center/contain no-repeat}
+
+.hx-ctxt small span{display:inline;color:inherit;font-size:inherit}
+.hx-ctxt small .hx-ex{color:var(--hx-mut);font-weight:400}
+.hx-ctxt{min-height:44px}
+.hx-cue .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+
+.hx-hold .hx-chip.hx-cu span i{animation-play-state:paused}
+.hx-stage{touch-action:pan-y}
+/* ===== שפה אחת: מסגרת בכחול לילה, ענן וטורקיז. צבע רק בתוך המסכים ===== */
+:root{--bg:light-dark(#F2F5F8,#16202E);--card:light-dark(#FFFFFF,#1B2738)}
+/* כותרת קטנה: אותה גלולה כמו בפתיחה */
+.label{display:inline-flex;align-items:center;gap:8px;letter-spacing:0;font-size:14px;font-weight:500;color:var(--muted);
+  border:1px solid var(--line);background:var(--card);border-radius:999px;padding:6px 12px;margin:0 0 16px}
+.label::before{content:"";flex:none;width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 22%,transparent)}
+.cpanel .label{color:#C7D2DF;border-color:rgba(255,255,255,.16);background:rgba(255,255,255,.05)}
+.cpanel .label::before{background:#3FD9C6;box-shadow:0 0 0 4px rgba(63,217,198,.22)}
+/* כרטיסי הפרויקטים: בסיס כחול לילה כמו הפתיחה, צבע הפרויקט רק כזוהר וכקו */
+.case,.case.alva{--pc:#16202E;--pc2:#1C2940;--pa:#3FD9C6;--pmut:#C7D2DF;
+  background:radial-gradient(70% 95% at var(--gx) 0%,color-mix(in srgb,var(--pg) 42%,transparent) 0%,transparent 62%),
+    radial-gradient(50% 60% at calc(100% - var(--gx)) 100%,rgba(63,217,198,.08),transparent 70%),
+    linear-gradient(160deg,var(--pc2),var(--pc) 60%)}
+.case::before{background:linear-gradient(150deg,color-mix(in srgb,var(--pg) 75%,#fff 10%),transparent 38%,transparent 72%,rgba(255,255,255,.08))}
+.case::after{opacity:.1}
+.case{box-shadow:0 40px 80px -55px color-mix(in srgb,var(--pg) 55%,#16202E)}
+.case .btn.pri{background:#3FD9C6;color:#16202E}
+.case .btn.pri:hover{box-shadow:0 12px 28px -12px rgba(63,217,198,.7)}
+/* כרטיסי "מה ניתן לבנות": אותו רקע לכל הכרטיסים, הדוגמה בפנים נשארת צבעונית */
+.ap,.ap.c2,.ap.c3,.ap.c4{--g1:#1D5C63;--g2:#16202E;background:var(--card)}
+.ap-art{background:radial-gradient(110% 120% at 100% 0%,#1F6A6E 0%,#16202E 68%)}
+.ap.on{box-shadow:0 30px 60px -38px rgba(22,32,46,.7)}
+.ti{background:linear-gradient(135deg,#16A394,#0E6F73);box-shadow:0 6px 14px -6px #0E6F73}
+/* שלבי העבודה: שלב פעיל בטורקיז בלבד */
+.proc li:nth-child(n){--sc:#16A394}
+/* שאלות נפוצות: אותו סידור כמו שאר הקטעים, כותרת מעל */
+.faqw{grid-template-columns:1fr;gap:0}
+.faqw .sech{position:static;margin:0 0 clamp(28px,4vw,48px)}
+.faqw .faq{max-width:880px}
+.faq .box{background:var(--card)}
+/* פחות עומס בכרטיסים: בלי דוגמת נקודות ובלי עיגול קישוט, זוהר רך יותר */
+.case::after,.ap-art::before,.ap-art::after{display:none}
+.case,.case.alva{background:radial-gradient(65% 85% at var(--gx) 0%,color-mix(in srgb,var(--pg) 30%,transparent) 0%,transparent 60%),linear-gradient(160deg,#1A2638,#16202E 60%)}
+.ap-art{background:linear-gradient(160deg,#1C3540,#16202E 75%)}
+/* ===== גרסה מעודנת: הפרויקטים בלי קופסה כהה. הטקסט על הרקע, המכשירים על במה בהירה בגוון הפרויקט ===== */
+.case,.case.alva{--pink:var(--ink);--pmut:var(--muted);background:none!important;box-shadow:none;color:var(--ink);
+  padding:clamp(12px,2vw,24px) 0;border-radius:0;overflow:visible}
+.case::before,.case::after{display:none}
+.case.ohs{--stage:light-dark(#ECEBFA,#1F2244);--pg:#5B4FD6}
+.case.alva{--stage:light-dark(#E9F2E6,#1B2C20);--pg:#4E8E3E}
+.case>div:not(.ctext){background:radial-gradient(80% 90% at 50% 0%,color-mix(in srgb,var(--pg) 14%,transparent),transparent 70%),var(--stage);
+  border-radius:28px;padding:clamp(20px,3.2vw,44px) clamp(16px,3vw,40px) clamp(18px,2.6vw,32px)}
+.case+.case{margin-top:clamp(48px,7vw,96px)}
+.pill{color:var(--muted);border-color:var(--line)}
+.roles div{border-inline-start-color:color-mix(in srgb,var(--pg) 55%,transparent)}
+.outs li::before{background:var(--pg)}
+.case .btn.pri{background:var(--action);color:var(--on-action)}
+.case .btn.pri:hover{box-shadow:0 10px 24px -10px rgba(22,32,46,.6)}
+.tabs button{border-color:color-mix(in srgb,var(--ink) 16%,transparent);color:var(--muted)}
+.tabs button:hover{color:var(--ink);border-color:color-mix(in srgb,var(--ink) 35%,transparent)}
+.tabs button[aria-pressed=true]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+/* ביניים: הדף נשאר נקי, ולבמה של המכשירים חוזר גרדיאנט עשיר בצבע הפרויקט */
+.case.ohs{--pg:#5B4FD6;--pg2:#9A8CFF;--stage:light-dark(#EEEDFB,#1F2244)}
+.case.alva{--pg:#4E8E3E;--pg2:#A8D58F;--stage:light-dark(#EAF3E6,#1B2C20)}
+.case>div:not(.ctext){position:relative;isolation:isolate;
+  background:radial-gradient(75% 85% at 85% 0%,color-mix(in srgb,var(--pg) 38%,transparent),transparent 65%),
+    radial-gradient(60% 70% at 10% 100%,color-mix(in srgb,var(--pg2) 40%,transparent),transparent 70%),
+    linear-gradient(160deg,color-mix(in srgb,var(--pg) 12%,var(--stage)),var(--stage) 70%);
+  box-shadow:0 30px 60px -45px color-mix(in srgb,var(--pg) 70%,transparent)}
+.case>div:not(.ctext)::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;pointer-events:none;z-index:-1;
+  background:linear-gradient(150deg,color-mix(in srgb,var(--pg) 45%,#fff),transparent 45%,transparent 70%,color-mix(in srgb,var(--pg2) 50%,transparent));
+  mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0)}
+/* הגרדיאנט על כל הכרטיס (טקסט ומכשירים), בגרסה בהירה */
+.case,.case.alva{position:relative;isolation:isolate;overflow:hidden;border-radius:28px;padding:clamp(24px,4.5vw,64px);
+  background:radial-gradient(70% 90% at var(--gx) 0%,color-mix(in srgb,var(--pg) 30%,transparent),transparent 62%),
+    radial-gradient(55% 70% at calc(100% - var(--gx)) 100%,color-mix(in srgb,var(--pg2) 38%,transparent),transparent 70%),
+    linear-gradient(160deg,color-mix(in srgb,var(--pg) 10%,var(--stage)),var(--stage) 70%)!important;
+  box-shadow:0 40px 80px -60px color-mix(in srgb,var(--pg) 75%,transparent)}
+.case::before{display:block;content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;pointer-events:none;z-index:-1;
+  background:linear-gradient(150deg,color-mix(in srgb,var(--pg) 45%,#fff),transparent 45%,transparent 70%,color-mix(in srgb,var(--pg2) 55%,transparent));
+  mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0)}
+.case>div:not(.ctext){background:none;box-shadow:none;padding:0;border-radius:0}
+.case>div:not(.ctext)::before{display:none}
+.case+.case{margin-top:clamp(20px,3vw,32px)}
+.case .pill{background:color-mix(in srgb,#fff 55%,transparent)}
+.case .pill{background:light-dark(rgba(255,255,255,.55),rgba(255,255,255,.06));color:var(--muted)}
+/* ===== וואו: תאורה עדינה, עומק ותנועה. הכול נעצר כשמבקשים פחות תנועה ===== */
+@property --wa{syntax:'<angle>';inherits:false;initial-value:0deg}
+/* אור רך שנע לאט מאחורי החלק הבהיר של הדף */
+.wow-aur{position:fixed;inset:-20vmax;z-index:-1;pointer-events:none;opacity:.55;
+  background:radial-gradient(28vmax 24vmax at 78% 30%,light-dark(rgba(22,163,148,.16),rgba(63,217,198,.08)),transparent 70%),
+             radial-gradient(30vmax 26vmax at 18% 72%,light-dark(rgba(124,107,224,.12),rgba(124,107,224,.07)),transparent 70%);
+  animation:wowAur 38s ease-in-out infinite alternate}
+@keyframes wowAur{to{transform:translate3d(-6vmax,4vmax,0) rotate(8deg)}}
+/* זרקור שעוקב אחרי העכבר על הכרטיסים */
+.case,.ap{--mx:50%;--my:50%}
+.wow-spot{position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:0;opacity:0;transition:opacity .35s;
+  background:radial-gradient(420px circle at var(--mx) var(--my),rgba(255,255,255,.55),transparent 55%);mix-blend-mode:soft-light}
+.case:hover>.wow-spot,.ap:hover>.wow-spot{opacity:1}
+.ap{position:relative}
+.ap .wow-spot{background:radial-gradient(300px circle at var(--mx) var(--my),rgba(63,217,198,.22),transparent 60%);mix-blend-mode:normal;z-index:2}
+.case>*:not(.wow-spot){position:relative;z-index:1}
+/* כרטיסי "מה ניתן לבנות": מתרוממים מעט במעבר */
+.ap{transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s}
+@media (hover:hover){.ap:hover{transform:translateY(-4px)}}
+/* שלבי העבודה: קו בטורקיז, הנקודה הפעילה זוהרת */
+.proc::after{background:linear-gradient(to left,#16A394,#3FD9C6)!important}
+.proc li.on .dot{box-shadow:0 0 0 6px color-mix(in srgb,#16A394 16%,transparent),0 10px 22px -8px #16A394!important}
+.proc li .dot{transition:transform .4s cubic-bezier(.3,1.6,.5,1),background .3s,box-shadow .3s}
+.proc li.on .dot{transform:scale(1.06)}
+/* שאלות: שאלה פתוחה מקבלת פס טורקיז */
+.faq details{position:relative}
+.faq details::before{content:"";position:absolute;inset-block:14px;inset-inline-start:0;width:3px;border-radius:3px;background:#16A394;transform:scaleY(0);transition:transform .35s}
+.faq details[open]::before{transform:scaleY(1)}
+.faq summary:hover{color:light-dark(#0E6F73,#3FD9C6)}
+/* יצירת קשר: מסגרת אור מסתובבת ואורורה בתוך הלוח */
+.cpanel{position:relative;isolation:isolate;overflow:hidden}
+.cpanel::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1.5px;pointer-events:none;z-index:2;
+  background:conic-gradient(from var(--wa),transparent 0 62%,rgba(63,217,198,.9) 75%,rgba(154,140,255,.7) 82%,transparent 92%);
+  mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0);animation:wowSpin 9s linear infinite}
+@keyframes wowSpin{to{--wa:360deg}}
+.cpanel::after{content:"";position:absolute;width:60%;aspect-ratio:1;right:-15%;top:-35%;z-index:-1;border-radius:50%;pointer-events:none;
+  background:radial-gradient(circle,rgba(63,217,198,.22),transparent 65%);animation:wowAur 16s ease-in-out infinite alternate}
+.cpanel .lform{box-shadow:0 30px 60px -30px rgba(0,0,0,.6)}
+@media (prefers-reduced-motion:reduce){.wow-aur,.cpanel::before,.cpanel::after{animation:none}.ap:hover{transform:none}}
 </style>
 </head>
 <body>
@@ -674,94 +1182,179 @@ h1 .dot{color:var(--accent)}
   <a class="btn pri" href="#contact">שיחת היכרות</a>
 </div></header>
 
-<main class="herob"><div class="wrap hero">
-  <div class="htxt">
+<main class="herob hx" id="top"><div class="hx-glow" aria-hidden="true"></div><div class="wrap hx-in">
+  <div class="hx-txt">
+    <p class="hx-kick"><i></i>אפיון · עיצוב · פיתוח · מסירה</p>
     <h1>מערכות ניהול ואוטומציה<br>בהתאמה אישית<span class="dot">.</span></h1>
-    <p class="lead">מערכת אחת ללקוחות, להזמנות ולתשלומים, שעושה את העבודה החוזרת בשבילך.</p>
-    <p class="incl">אפיון · עיצוב · פיתוח · מסירה</p>
-    <div class="acts">
-      <a class="btn pri" href="#work">לצפייה בפרויקטים</a>
-      <a class="btn sec" href="#contact">לתיאום שיחת היכרות</a>
+    <p class="hx-lead">מערכת אחת ללקוחות, להזמנות ולתשלומים, שעושה את העבודה החוזרת בשבילך. בסוף הפרויקט הכול עובר לבעלותך.</p>
+    <div class="hx-acts">
+      <a class="btn hx-pri" href="#work">לראות מערכת בפעולה</a>
+      <a class="btn hx-sec" href="#contact">לתיאום שיחת היכרות</a>
     </div>
   </div>
 
-  <div class="stage">
-    <div class="scene" id="scene" role="img" aria-label="הדמיה של מערכת לדוגמה על שולחן עבודה: פנייה נכנסת מהטלפון, הצעת מחיר נשלחת, תשלום מתקבל ולוח הבקרה מתעדכן, משימות מתוזמנות רצות בלילה, ובבוקר מגיע דוח יומי.">
-      <div class="pw" id="pw">
-        <img class="photo" src="img/desk-ai.webp" srcset="img/desk-ai-1100.webp 1100w, img/desk-ai.webp 1672w" sizes="(max-width:900px) 100vw, 62vw" alt="" width="1672" height="941">
-        <div class="live sway-shadow" aria-hidden="true"></div>
-        <div class="live sway-plant" aria-hidden="true"></div>
-        <div class="sunpatch" aria-hidden="true"></div>
-        <div class="steamcover" id="steamcover" aria-hidden="true"></div>
-      </div>
-      <svg class="air" viewBox="0 0 1672 941" preserveAspectRatio="none" aria-hidden="true">
-        <defs>
-          <filter id="fShadow" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.006 0.012" numOctaves="2" seed="3" result="n"><animate attributeName="baseFrequency" dur="9s" values="0.006 0.012;0.0075 0.010;0.006 0.012" repeatCount="indefinite"/></feTurbulence><feDisplacementMap in="SourceGraphic" in2="n" scale="16" xChannelSelector="R" yChannelSelector="G"/></filter>
-          <filter id="fPlant" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.01 0.016" numOctaves="2" seed="8" result="n"><animate attributeName="baseFrequency" dur="6.5s" values="0.010 0.016;0.012 0.013;0.010 0.016" repeatCount="indefinite"/></feTurbulence><feDisplacementMap in="SourceGraphic" in2="n" scale="7" xChannelSelector="R" yChannelSelector="G"/></filter>
-          <filter id="fSteam" x="-50%" y="-20%" width="200%" height="140%"><feTurbulence type="fractalNoise" baseFrequency="0.02 0.05" numOctaves="2" seed="5" result="n"><animate attributeName="seed" dur="4s" values="5;9;5" repeatCount="indefinite"/></feTurbulence><feDisplacementMap in="SourceGraphic" in2="n" scale="22"/><feGaussianBlur stdDeviation="5"/></filter>
-          <radialGradient id="mote"><stop offset="0" stop-color="#FFF6DE" stop-opacity=".95"/><stop offset="1" stop-color="#FFF6DE" stop-opacity="0"/></radialGradient>
-        </defs>
-        <g id="steam" filter="url(#fSteam)" fill="none" stroke="#FFFFFF" stroke-linecap="round"></g>
-        <g id="motes"></g>
-      </svg>
-      <div class="tint" id="tint"></div>
-      <div class="dev scr" id="lap"><div class="ls" id="ls" data-v="day">
-        <div class="view vday">
-        <div class="lbar"><span>העסק שלך · לוח בקרה</span><i>היום</i></div>
-        <div class="lbody">
-          <div class="lk"><div id="k1"><b id="n1">4</b><small>פניות היום</small></div><div id="k2"><b id="n2">6</b><small>הצעות פתוחות</small></div><div id="k3"><b id="n3">38,200 ₪</b><small>הכנסות החודש</small></div></div>
-          <div class="lrow"><svg class="ring" viewBox="0 0 80 80"><circle class="bg" cx="40" cy="40" r="32"/><circle class="fg" id="ring" cx="40" cy="40" r="32" transform="rotate(-90 40 40)" stroke-dasharray="201" stroke-dashoffset="72.4"/><text id="pct" x="40" y="47" text-anchor="middle">64%</text></svg><div><b>יעד חודשי</b><br><small style="color:#535C72" id="ptx">38,200 מתוך 60,000 ₪</small></div></div>
-          <div class="deal" id="deal"><div class="dhead"><b>דוד לוי · התקנה ותחזוקה</b><span id="dsum">—</span></div>
-            <div class="pipe" id="pipe" data-s="0"><span><i></i>פנייה</span><span><i></i>הצעה נשלחה</span><span><i></i>שולם</span></div></div>
-        </div>
-        </div>
-        <div class="view vnight">
-          <div class="nbar"><span>משימות מתוזמנות</span><i></i></div>
-          <ul class="log" id="log"><li><time>02:00</time>תזכורות תשלום נשלחו · 3 לקוחות</li><li><time>02:10</time>גיבוי הנתונים הושלם</li><li><time>03:00</time>הזמנת מלאי נשלחה לספק</li><li><time>06:55</time>הדוח היומי מוכן</li></ul>
-        </div>
-        <div class="view vrep">
-          <div class="lbar rbar"><span>דוח יומי · יום רביעי</span><i>07:00</i></div>
-          <div class="rbody">
-            <div class="rk"><div><b>5</b><small>פניות חדשות</small></div><div><b>9,600 ₪</b><small>הכנסות אתמול</small></div><div><b>72%</b><small>מהיעד החודשי</small></div></div>
-            <div class="charts">
-              <div class="ch"><small>פניות לפי מקור</small><div class="donut"><svg viewBox="0 0 80 80" aria-hidden="true"><circle cx="40" cy="40" r="32" stroke="#16202E" data-l="89.0" stroke-dasharray="0 201.1" stroke-dashoffset="0.0"/><circle cx="40" cy="40" r="32" stroke="#16A394" data-l="58.8" stroke-dasharray="0 201.1" stroke-dashoffset="-90.5"/><circle cx="40" cy="40" r="32" stroke="#3FD9C6" data-l="28.7" stroke-dasharray="0 201.1" stroke-dashoffset="-150.8"/><circle cx="40" cy="40" r="32" stroke="#9AA6B6" data-l="18.6" stroke-dasharray="0 201.1" stroke-dashoffset="-181.0"/></svg><ul class="legend"><li><i style="background:#16202E"></i>אתר 45%</li><li><i style="background:#16A394"></i>וואטסאפ 30%</li><li><i style="background:#3FD9C6"></i>טלפון 15%</li><li><i style="background:#9AA6B6"></i>המלצה 10%</li></ul></div></div>
-              <div class="ch"><small>מגמת הכנסות</small><svg class="spark" viewBox="0 0 120 60" preserveAspectRatio="none"><defs><linearGradient id="sg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#16A394" stop-opacity=".35"/><stop offset="1" stop-color="#16A394" stop-opacity="0"/></linearGradient></defs><path class="area" d="M0 50 L20 44 L40 46 L60 30 L80 34 L100 18 L120 10 L120 60 L0 60Z" fill="url(#sg)"/><path class="line" d="M0 50 L20 44 L40 46 L60 30 L80 34 L100 18 L120 10" fill="none" stroke="#16A394" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" pathLength="1"/></svg></div>
+  <div class="hx-vis">
+    <div class="hx-stage" id="hxs" data-s="0" role="img" aria-label="דוגמאות למערכות לחמישה סוגי עסקים: נופש וצימרים, קייטרינג ואולם שמחות, מוסך, דלתות ונגרות, הובלות ושליחויות. בכל אחת הודעה או תשלום יוצאים לבד.">
+
+      <div class="hx-lap"><div class="hx-scr"><div class="hx-fit" data-w="800" data-h="500">
+
+        <!-- 0 · נופש וצימרים: אתר הזמנות -->
+        <div class="x-ui x-sc x-vac x-on" data-i="0">
+          <div class="x-vnav"><span class="x-vlogo"><i></i>צימרי הכנרת</span><span>הצימרים</span><span>גלריה</span><span>חוות דעת</span><span>הגעה</span><span class="x-vcall">04-6543210</span></div>
+          <div class="x-vhero" style="background-image:url(img/hx/vac-kinneret.webp)">
+            <div class="x-vh-t"><small>טבריה · 4 צימרים מול הכנרת</small><b>בוקר מול הכנרת,<br>שקט עד האופק</b><span>ג'קוזי מול הנוף · ארוחת בוקר במרפסת</span></div>
+            <div class="x-vbook">
+              <div class="x-vb-r"><span><small>הגעה</small>ה' 12.12</span><span><small>עזיבה</small>ש' 14.12</span><span><small>אורחים</small>2 מבוגרים</span></div>
+              <small class="x-vb-l">בחירת צימר</small>
+              <div class="x-vunits"><span class="x-vu" style="--p:url(img/hx/vac-bed2.webp)"><b>צימר הזית</b><small>1,100 ₪ ללילה</small></span><span class="x-vu x-sel" style="--p:url(img/hx/vac-pool.webp)"><b>וילת הבריכה</b><small>1,200 ₪ ללילה</small></span><span class="x-vu" style="--p:url(img/hx/vac-bed1.webp)"><b>סוויטת הכנרת</b><small>950 ₪ ללילה</small></span></div>
+              <div class="x-vb-tot"><span>2 לילות · וילת הבריכה</span><b>2,400 ₪</b></div>
+              <span class="x-vb-btn x-a">להזמנה ותשלום</span><span class="x-vb-btn x-b">ההזמנה אושרה ✓</span>
             </div>
           </div>
         </div>
-      </div></div>
-            <div class="dev ph" id="ph"><div class="ps" id="ps" data-v="form">
-        <div class="isl"></div>
-        <div class="pv pform"><div class="ptop"><b>בקשת הצעת מחיר</b><small>נחזור אליך עוד היום</small></div>
-          <div class="fld"><small>שם</small>דוד לוי</div><div class="fld"><small>טלפון</small>050-1234567</div><div class="fld"><small>מה צריך?</small>התקנה ותחזוקה</div>
-          <div class="pbtn" id="sbtn">שליחה</div></div>
-        <div class="pv pok2"><svg viewBox="0 0 76 76"><circle cx="38" cy="38" r="38"/><path d="M23 39l10 10 20-22"/></svg><b>הפנייה התקבלה</b><small>הצעת מחיר בדרך אליך</small></div>
-        <div class="pv pquote"><div class="ptop"><b>הצעת מחיר</b><small>מס' 2041 · דוד לוי</small></div>
-          <div class="qrow"><span>עבודה וחומרים</span><b>4,068 ₪</b></div><div class="qrow"><span>מע"מ</span><b>732 ₪</b></div><div class="qrow qtot"><span>סה"כ</span><b>4,800 ₪</b></div>
-          <div class="pbtn" id="qbtn">אישור ותשלום</div></div>
-        <div class="pv pok2 ppaid"><svg viewBox="0 0 76 76"><circle cx="38" cy="38" r="38"/><path d="M23 39l10 10 20-22"/></svg><b>התשלום התקבל</b><small>קבלה נשלחה למייל</small></div>
-      </div></div>
 
-      
+        <!-- 1 · קייטרינג ואולם שמחות: בחירת תפריט -->
+        <div class="x-ui x-sc x-cat" data-i="1">
+          <div class="x-ui-top"><span class="x-mono">ק</span><b>בחירת תפריט · חתונת משפחת לוי</b><span class="x-sp"></span><span class="x-pill">ג' כסלו · 420 מוזמנים</span><span class="x-av">א</span></div>
+          <div class="x-ui-b x-menu-g">
+            <div class="x-menu">
+              <div class="x-mtabs"><span class="x-cur">כל המנות</span><span>ראשונות</span><span>עיקריות</span><span>קינוחים</span></div>
+              <div class="x-dishes">
+                <span class="x-dish x-sel" style="--p:url(img/hx/cat-fish.webp)"><em>ראשונה</em><b>סלמון בעשבי תיבול</b></span>
+                <span class="x-dish" style="--p:url(img/hx/cat-salmon.webp)"><em>ראשונה</em><b>סלמון על קינואה</b></span>
+                <span class="x-dish x-sel" style="--p:url(img/hx/cat-steak.webp)"><em>עיקרית</em><b>אנטריקוט על הגריל</b></span>
+                <span class="x-dish x-sel" style="--p:url(img/hx/cat-meat.webp)"><em>עיקרית</em><b>צלי בקר ותפוחי אדמה</b></span>
+                <span class="x-dish x-pk" style="--p:url(img/hx/cat-mousse.webp)"><em>קינוח</em><b>מוס שוקולד</b></span>
+                <span class="x-dish" style="--p:url(img/hx/cat-dessert.webp)"><em>קינוח</em><b>קרם פירות יער</b></span>
+              </div>
+            </div>
+            <div class="x-msum">
+              <div class="x-cd x-mtot"><small>מחיר למנה</small><b>165 ₪</b><small>סה"כ לאירוע</small><b class="x-big">69,300 ₪</b><span class="x-st x-w">ממתין לאישור המשפחה</span><span class="x-st x-ok">התפריט אושר</span></div>
+              <div class="x-cd x-kit"><small>כמויות למטבח</small>
+                <div class="x-q"><span>סלמון</span><i style="--w:43%"></i><b>180</b></div>
+                <div class="x-q"><span>אנטריקוט</span><i style="--w:57%"></i><b>240</b></div>
+                <div class="x-q"><span>צלי בקר</span><i style="--w:43%"></i><b>180</b></div>
+                <div class="x-q"><span>מוס שוקולד</span><i style="--w:100%"></i><b>420</b></div></div>
+            </div>
+          </div>
+        </div>
 
-      <div class="note2 n0" id="note0"><span><small>המערכת · 09:14</small><b>פנייה חדשה</b><em>דוד לוי · בקשה להצעת מחיר</em></span></div>
-      <div class="note2 n1" id="note1"><span><small>המערכת · 09:15</small><b>הצעת מחיר נשלחה</b><em>מס' 2041 · 4,800 ₪</em></span></div>
-      <div class="note2 n2" id="note2"><span><small>המערכת · 11:32</small><b>תשלום התקבל</b><em>4,800 ₪ · דוד לוי</em></span></div>
-      <div class="note2 n3" id="note3"><span><small>המערכת · 02:00</small><b>משימות הלילה הושלמו</b><em>3 תזכורות · גיבוי · הזמנת מלאי</em></span></div>
-      <div class="note2 n4" id="note4"><span><small>המערכת · 07:00</small><b>הדוח היומי מוכן</b><em>5 פניות · 2 עסקאות · 9,600 ₪</em></span></div>
-      <div class="capbar">
-        <div class="captxt" aria-live="polite"><small id="ct">10:12</small><b id="st">הורה מזמין בטלפון</b><span id="cp">בוחר ספרים לשני הילדים ומשלם בלחיצה אחת.</span></div>
-        <div class="capctl"><span id="chips" role="group" aria-label="שלבים ביום"></span><button class="pp" id="pp" type="button" aria-pressed="false" aria-label="עצירה"><svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path id="ppath" d="M4 2h3v12H4zM9 2h3v12H9z" fill="currentColor"/></svg><span id="ppt" class="sr">עצירה</span></button></div>
-      </div>
-      <svg class="fx" viewBox="0 0 1672 941" preserveAspectRatio="none" aria-hidden="true">
-        <defs><filter id="glow" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="6"/></filter></defs>
-        
-        
-      </svg>
+        <!-- 2 · מוסך -->
+        <div class="x-ui x-sc x-gar" data-i="2">
+          <div class="x-ui-top"><span class="x-mono">מ</span><b>לוח עבודה · מוסך</b><span class="x-sp"></span><span class="x-pill">היום · 8 רכבים</span><span class="x-av">ע</span></div>
+          <div class="x-ui-b x-gar-w"><div class="x-gban" style="--p:url(img/hx/gar-tools2.webp)"><span><small>רכבים היום</small><b>8</b></span><span><small>מוכנים לאיסוף</small><b class="x-o1">1</b><b class="x-o2">2</b></span><span><small>הכנסות היום</small><b class="x-o1">4,760 ₪</b><b class="x-o2">6,240 ₪</b></span></div><div class="x-gar-k">
+            <div class="x-col"><p><i style="--c:#8B95A5"></i>התקבל<em>3</em></p>
+              <div class="x-car"><span class="x-cth" style="--p:url(img/hx/car-i30.webp)"></span><span class="x-plate">58-211-73</span><b>יונדאי i30</b><small>טיפול 30,000</small></div>
+              <div class="x-car"><span class="x-cth x-sil" style="--cc:#5B6B80"></span><span class="x-plate">71-904-22</span><b>סקודה אוקטביה</b><small>נורת מנוע</small></div>
+              <div class="x-car"><span class="x-cth x-sil" style="--cc:#8E2B2B"></span><span class="x-plate">33-118-65</span><b>קיה ספורטאז'</b><small>צמיגים</small></div></div>
+            <div class="x-col"><p><i style="--c:#F5B841"></i>באבחון<em>2</em></p>
+              <div class="x-car"><span class="x-cth x-sil" style="--cc:#2E5E9E"></span><span class="x-plate">45-776-10</span><b>פורד פוקוס</b><small>רעש בבלמים</small><span class="x-mk">י</span></div>
+              <div class="x-car"><span class="x-cth x-sil" style="--cc:#9A1F2B"></span><span class="x-plate">90-342-58</span><b>מזדה 3</b><small>מיזוג</small><span class="x-mk">ד</span></div></div>
+            <div class="x-col"><p><i style="--c:#FF7A1A"></i>בתיקון<em class="x-c1">2</em><em class="x-c2">1</em></p>
+              <div class="x-car x-hot x-a1"><span class="x-cimg" style="--p:url(img/hx/car-corolla.webp)"></span><span class="x-plate">12-345-67</span><b>טויוטה קורולה</b><small>החלפת רפידות</small><span class="x-mk">ע</span><span class="x-prg"><i></i></span></div>
+              <div class="x-car"><span class="x-cth x-sil" style="--cc:#C9CDD2"></span><span class="x-plate">66-201-84</span><b>ניסאן קשקאי</b><small>מצבר</small><span class="x-mk">י</span></div></div>
+            <div class="x-col x-rdy"><p><i style="--c:#3DDC84"></i>מוכן לאיסוף<em class="x-c1">1</em><em class="x-c2">2</em></p>
+              <div class="x-car x-hot x-a2"><span class="x-cimg" style="--p:url(img/hx/car-corolla.webp)"></span><span class="x-plate">12-345-67</span><b>טויוטה קורולה</b><small>1,480 ₪ · הודעה נשלחה</small><span class="x-okm">✓</span></div>
+              <div class="x-car"><span class="x-cth x-sil" style="--cc:#7DBB3C"></span><span class="x-plate">27-655-31</span><b>שברולט ספארק</b><small>890 ₪</small><span class="x-okm">✓</span></div></div>
+          </div></div>
+        </div>
+
+        <!-- 3 · דלתות ונגרות -->
+        <div class="x-ui x-sc x-door" data-i="3">
+          <div class="x-ui-top"><span class="x-mono">ד</span><b>הזמנה 2317 · דלת כניסה</b><span class="x-sp"></span><span class="x-pill">משפחת אדלר · בית שמש</span><span class="x-av">ש</span></div>
+          <div class="x-ui-b x-door-g">
+            <div class="x-door-v"><span class="x-wall"><img src="img/hx/door-urban.svg" alt=""></span><span class="x-dm x-h">210 ס"מ</span><span class="x-dm x-w">90 ס"מ</span><span class="x-dtag">אורבן · פלדה שחורה</span></div>
+            <div class="x-door-d">
+              <div class="x-models"><span class="x-md x-sel"><img src="img/hx/door-urban.svg" alt=""><b>אורבן</b><small>4,900 ₪</small></span><span class="x-md"><img src="img/hx/door-nordic.svg" alt=""><b>נורדי</b><small>5,400 ₪</small></span><span class="x-md"><img src="img/hx/door-prime.svg" alt=""><b>פריים</b><small>4,600 ₪</small></span></div>
+              <div class="x-spec"><span><small>חומר וגימור</small>פלדה · צבע שחור מט</span><span><small>פרזול</small>ידית שחורה · נעילה רב-בריחית</span></div>
+              <div class="x-stp"><span class="x-ok">מדידה</span><i></i><span class="x-ok">ייצור</span><i></i><span class="x-paint">צביעה</span><i class="x-l3"></i><span class="x-inst">התקנה</span></div>
+              <div class="x-cd x-slots"><small>מועדי התקנה פנויים</small><div><span>א' 13:00</span><span class="x-pick">ג' 09:00</span><span>ד' 15:00</span><span>ה' 08:00</span></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4 · הובלות ושליחויות -->
+        <div class="x-ui x-sc x-mov" data-i="4">
+          <div class="x-ui-top"><span class="x-mono">ה</span><b>מסלול יומי · רכב 3</b><span class="x-sp"></span><span class="x-pill"><b class="x-o1">13</b><b class="x-o2">14</b> מתוך 18 נמסרו</span><span class="x-av">ר</span></div>
+          <div class="x-ui-b x-mov-g">
+            <div class="x-map" style="--p:url(img/hx/map-rehovot.webp)">
+              <svg viewBox="0 0 768 768" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+                <path class="x-route" d="M205 322 L410 128 L470 250 L548 520 L690 506 L700 585"/>
+                <path class="x-route x-done" pathLength="1" d="M205 322 L410 128 L470 250 L548 520 L690 506"/>
+                <g class="x-stops"><circle cx="205" cy="322" r="15"/><circle cx="470" cy="250" r="15"/><circle cx="548" cy="520" r="15"/><circle class="x-nx" cx="690" cy="506" r="15"/><circle class="x-lt" cx="700" cy="585" r="15"/></g>
+                <g font-size="16" font-weight="700" text-anchor="middle" fill="#fff"><text x="205" y="328">1</text><text x="470" y="256">2</text><text x="548" y="526">3</text><text x="690" y="512" fill="#1E3A8A">4</text><text x="700" y="591">5</text></g>
+                <g id="hxtrk" transform="translate(548 520)"><circle r="22" fill="#2D5BFF" opacity=".18"/><rect x="-16" y="-16" width="32" height="32" rx="10" fill="#1E3A8A" stroke="#fff" stroke-width="3"/><path d="M-9 -4h10v9h-10zM1 -1h4.5l3 3.2V5H1z" fill="#fff"/></g>
+              </svg>
+              <span class="x-osm">© OpenStreetMap</span>
+            </div>
+            <div class="x-mov-s"><div class="x-veh" style="--p:url(img/hx/mov-truck1.webp)"><b>רכב 3 · משאית 12 טון</b><small>נהג: רוני · 18 משלוחים היום</small></div>
+              <div class="x-stop x-dn"><b>דרך יבנה 40, רחובות</b><small>נמסר · 08:52</small></div>
+              <div class="x-stop x-dn"><b>הרצל 120</b><small>נמסר · 09:31</small></div>
+              <div class="x-stop x-dn"><b>הרצל 186</b><small>נמסר · 10:04</small></div>
+              <div class="x-stop x-cur"><b>יעקב 12</b><small class="x-a">בדרך · הגעה 10:40</small><small class="x-b">נמסר · 10:38</small></div>
+              <div class="x-stop"><b>בנימין 7</b><small>הבא בתור</small></div>
+            </div>
+          </div>
+        </div>
+
+      </div></div><div class="hx-base"></div></div>
+
+      <div class="hx-ph"><div class="hx-pscr"><div class="hx-fit" data-w="280" data-h="600">
+        <div class="x-pui x-sc x-vac x-on" data-i="0">
+          <div class="x-pv-img" style="--p:url(img/hx/vac-pool.webp)"><span class="x-vlogo"><i></i>צימרי הכנרת</span></div>
+          <div class="x-pv-b"><b>וילת הבריכה</b><small>בריכה פרטית · ג'קוזי · עד 4 אורחים</small>
+            <div class="x-pv-r"><span><small>הגעה</small>ה' 12.12</span><span><small>עזיבה</small>ש' 14.12</span></div>
+            <div class="x-vb-tot"><span>2 לילות</span><b>2,400 ₪</b></div>
+            <span class="x-vb-btn x-a">להזמנה ותשלום</span><span class="x-vb-btn x-b">ההזמנה אושרה ✓</span></div>
+          <div class="x-push"><span class="x-mono" style="background:#FFD7C2;color:#B84A1C">כ</span><span><b>צימרי הכנרת · ההזמנה אושרה</b><small>הגעה מ-15:00 · קוד לדלת 4729</small></span></div>
+        </div>
+        <div class="x-pui x-sc x-cat" data-i="1"><div class="x-p-h"><small>חתונת משפחת לוי · ג' כסלו</small><b>התפריט שלכם</b></div>
+          <div class="x-pm"><span class="x-pd x-on" style="--p:url(img/hx/cat-fish.webp)"><b>סלמון בעשבי תיבול</b><small>ראשונה</small></span><span class="x-pd x-on" style="--p:url(img/hx/cat-steak.webp)"><b>אנטריקוט על הגריל</b><small>עיקרית</small></span><span class="x-pd x-on" style="--p:url(img/hx/cat-meat.webp)"><b>צלי בקר ותפוחי אדמה</b><small>עיקרית</small></span><span class="x-pd x-pk" style="--p:url(img/hx/cat-mousse.webp)"><b>מוס שוקולד</b><small>קינוח</small></span></div>
+          <span class="x-p-btn x-a">אישור התפריט</span><span class="x-p-btn x-b">התפריט אושר ✓</span>
+          <div class="x-push"><span class="x-mono" style="background:#E3B35A;color:#4A0F24">ק</span><span><b>הקייטרינג · התפריט התקבל</b><small>420 מנות · נעדכן את המטבח</small></span></div>
+        </div>
+        <div class="x-pui x-sc x-gar" data-i="2"><div class="x-p-h x-dk"><small>המוסך · טויוטה קורולה 12-345-67</small><b class="x-o1">הרכב שלך בטיפול</b><b class="x-o2">הרכב מוכן לאיסוף</b></div>
+          <span class="x-pg-img" style="--p:url(img/hx/gar-engine1.webp)"><em>תמונה מהטיפול</em></span>
+          <ul class="x-pst"><li class="x-ok">התקבל במוסך</li><li class="x-ok">אבחון</li><li class="x-cur">תיקון · החלפת רפידות</li><li class="x-nxt">מוכן לאיסוף</li></ul>
+          <div class="x-pg-pay"><span>לתשלום</span><b>1,480 ₪</b></div>
+          <span class="x-p-btn x-a x-gbtn">התשלום יתאפשר בסיום</span><span class="x-p-btn x-b x-gbtn2">תשלום מאובטח</span>
+          <div class="x-push"><span class="x-mono" style="background:#FF7A1A;color:#fff">מ</span><span><b>המוסך · הרכב מוכן לאיסוף</b><small>קורולה 12-345-67 · קישור לתשלום</small></span></div>
+        </div>
+        <div class="x-pui x-sc x-door" data-i="3"><div class="x-p-h"><small>הזמנה 2317 · משפחת אדלר</small><b>הדלת שלכם</b></div>
+          <span class="x-pdoor"><img src="img/hx/door-urban.svg" alt=""><span><b>אורבן</b><small>פלדה שחורה · 90×210</small></span></span>
+          <ul class="x-pst"><li class="x-ok">מדידה</li><li class="x-ok">ייצור</li><li class="x-cur">צביעה</li><li class="x-nxt">התקנה · <i class="x-o1">ממתין למועד</i><i class="x-o2">ג' 09:00</i></li></ul>
+          <span class="x-p-btn x-a x-dbtn">בחירת מועד התקנה</span><span class="x-p-btn x-b x-dbtn2">נקבע: ג' 09:00–11:00 ✓</span>
+          <div class="x-push"><span class="x-mono" style="background:#C9E0C6;color:#2E4A2B">ד</span><span><b>הנגרייה · ההתקנה נקבעה</b><small>יום ג' 09:00 · אבי ויוסי</small></span></div>
+        </div>
+        <div class="x-pui x-sc x-mov" data-i="4"><div class="x-p-h x-dk"><small>משלוח מס' 48213 · יעקב 12</small><b class="x-o1">המשלוח בדרך אליך</b><b class="x-o2">המשלוח נמסר</b></div>
+          <span class="x-pmap" style="--p:url(img/hx/map-rehovot.webp)"><i class="x-pin"></i><i class="x-ptruck"></i></span>
+          <div class="x-peta"><span><small>הגעה משוערת</small><b class="x-o1">10:40</b><b class="x-o2">נמסר 10:38</b></span><span class="x-pdrv"><small>הנהג</small><b>רוני · רכב 3</b></span></div>
+          <span class="x-dph" style="--p:url(img/hx/mov-boxes2.webp)"><em>צילום המסירה · נחתם ע"י ר. כהן</em></span>
+          <div class="x-push"><span class="x-mono" style="background:#A3E635;color:#0B1437">ה</span><span><b>המשלוח נמסר</b><small>יעקב 12 · 10:38 · צילום מצורף</small></span></div>
+        </div>
+      </div></div></div>
+
+      <!-- רגעי אוטומציה: שלב א' ושלב ב' בכל עסק -->
+      <div class="hx-card x-ta" data-i="0"><span class="hx-ic" style="--a:#25C9B8;--b:#0E7C8C"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.8 2.6 15.2 0 18M12 3c-2.6 2.8-2.6 15.2 0 18"/></svg></span><span><b>הזמנה חדשה מהאתר</b><small>וילת הבריכה · ה'–ש' · 2 לילות</small></span><em>2,400 ₪</em></div>
+      <div class="hx-card x-tb" data-i="0"><span class="hx-ic x-ok"><svg viewBox="0 0 24 24"><path d="M4 5h16v10.5H9.5L5 19.5V15.5H4z"/></svg></span><span><b>האורחים קיבלו הכול</b><small>אישור, הוראות הגעה וקוד לדלת</small></span></div>
+      <div class="hx-card x-ta" data-i="1"><span class="hx-ic" style="--a:#D24D6C;--b:#7A1E3A"><svg viewBox="0 0 24 24"><path d="M4 15h16M5 15a7 7 0 0 1 14 0M12 8V6M3 18h18"/></svg></span><span><b>המשפחה בחרה תפריט</b><small>מהטלפון · 420 מנות</small></span></div>
+      <div class="hx-card x-tb" data-i="1"><span class="hx-ic x-ok"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span><b>התפריט אושר</b><small>הכמויות נשלחו למטבח</small></span><em>69,300 ₪</em></div>
+      <div class="hx-card x-ta" data-i="2"><span class="hx-ic" style="--a:#FF9A4A;--b:#C2500B"><svg viewBox="0 0 24 24"><path d="M14.5 6.5a4 4 0 0 0-5.3 5.3L4 17l3 3 5.2-5.2a4 4 0 0 0 5.3-5.3l-2.3 2.3-2.4-.6-.6-2.4z"/></svg></span><span><b>הטיפול הסתיים</b><small>טויוטה קורולה · 12-345-67</small></span></div>
+      <div class="hx-card x-tb" data-i="2"><span class="hx-ic x-ok"><svg viewBox="0 0 24 24"><path d="M4 5h16v10.5H9.5L5 19.5V15.5H4z"/></svg></span><span><b>הודעה נשלחה ללקוח</b><small>הרכב מוכן, עם קישור לתשלום</small></span></div>
+      <div class="hx-card x-ta" data-i="3"><span class="hx-ic" style="--a:#C08A55;--b:#6E4325"><svg viewBox="0 0 24 24"><path d="M5 20V5.5A1.5 1.5 0 0 1 6.5 4h11A1.5 1.5 0 0 1 19 5.5V20M3 20h18M15 12.5h.01"/></svg></span><span><b>הצביעה הושלמה</b><small>הזמנה 2317 · עוברת להתקנה</small></span></div>
+      <div class="hx-card x-tb" data-i="3"><span class="hx-ic x-ok"><svg viewBox="0 0 24 24"><rect x="4" y="5.5" width="16" height="14" rx="2"/><path d="M4 10h16M8.5 3.5v4M15.5 3.5v4M9 14.5l2 2 4-4"/></svg></span><span><b>ההתקנה נקבעה</b><small>ג' 09:00 · הודעה נשלחה למשפחה</small></span></div>
+      <div class="hx-card x-ta" data-i="4"><span class="hx-ic" style="--a:#5B8CFF;--b:#2340B8"><svg viewBox="0 0 24 24"><path d="M2.5 6.5h11v9.5h-11zM13.5 10h4l3 3.2v2.8h-7z"/><circle cx="6.5" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/></svg></span><span><b>הנהג בדרך</b><small>הודעה ללקוח ביעקב 12 · הגעה 10:40</small></span></div>
+      <div class="hx-card x-tb" data-i="4"><span class="hx-ic x-ok"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span><b>המשלוח נמסר</b><small>חתימה התקבלה · אישור נשלח לשולח</small></span></div>
     </div>
-</div>
+
+    <div class="hx-cap">
+      <div class="hx-ctxt" aria-live="polite"><small><span class="hx-ex">דוגמה · </span><span id="hxt">נופש וצימרים</span></small><b id="hxh">הזמנה ותשלום באתר</b></div>
+      <div class="hx-ctl"><span class="hx-chips" id="hxchips" role="group" aria-label="סוגי עסקים"></span><button class="hx-pp" id="hxpp" type="button" aria-label="עצירה"><svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path id="hxpath" d="M4 2h3v12H4zM9 2h3v12H9z" fill="currentColor"/></svg></button></div>
+    </div>
   </div>
-</div></main>
+</div>
+<a class="hx-cue" href="#work"><span class="sr">לפרויקטים</span><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 6l5 5 5-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+</main>
 
 <section class="work" id="work" aria-labelledby="workh">
   <div class="wrap">
@@ -986,12 +1579,13 @@ h1 .dot{color:var(--accent)}
 
 
 <script src="js/index-1.js?v=d65eca77"></script>
-<script src="js/index-2.js?v=936c60bd"></script>
+<script src="js/index-2.js?v=2b1dfd59"></script>
 
 <script src="js/index-3.js?v=ec7e2430"></script>
 
 <script src="js/index-4.js?v=f49cb3b0"></script>
 
 <script src="js/index-5.js?v=dae76707"></script>
-<script src="js/index-6.js?v=9634134d"></script></body>
+<script src="js/index-6.js?v=9634134d"></script><script src="js/index-7.js?v=3cd27be6"></script>
+</body>
 </html>

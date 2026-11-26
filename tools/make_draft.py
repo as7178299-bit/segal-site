@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""טיוטת פתיחה משולבת: לוקח את src/site.html ומחליף רק את הפתיחה (סימון, עיצוב וקוד). פלט: הנתיב שניתן."""
+"""טיוטת פתיחה משולבת: לוקח את tools/site-classic.html ומחליף רק את הפתיחה (סימון, עיצוב וקוד). פלט: הנתיב שניתן."""
 import re, sys, pathlib
 t = pathlib.Path(__file__).resolve().parent
-s = (t.parent / 'src' / 'site.html').read_text(encoding='utf-8')
+s = (t / 'site-classic.html').read_text(encoding='utf-8')
 a = s.index('<main class="herob">'); b = s.index('</main>', a) + len('</main>')
 s = s[:a] + (t / 'hero_hx.html').read_text(encoding='utf-8').rstrip() + s[b:]
 # הקוד של הפתיחה הישנה הוא בלוק הסקריפט הראשון
